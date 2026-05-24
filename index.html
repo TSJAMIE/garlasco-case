@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Garlasco Chrono-Map (Dark Style)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video id="bg-video" autoplay loop muted playsinline>
+        <source src="background/background.mp4" type="video/mp4">
+        Il tuo browser non supporta i video HTML5.
+    </video>
+
+    <audio id="bg-music" loop>
+        <source src="background/bannermusic.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="disclaimer-overlay">
+    <div class="disclaimer-box">
+        <div class="box-corner top-left"></div>
+        <div class="box-corner top-right"></div>
+        <div class="box-corner bottom-left"></div>
+        <div class="box-corner bottom-right"></div>
+
+        <div class="disclaimer-header">
+            <i class="fa-solid fa-triangle-exclamation disclaimer-icon"></i>
+            <div class="disclaimer-title">DISCLAIMER</div>
+        </div>
+        
+        <div class="disclaimer-sub">CASO GARLASCO</div>
+        
+        <div class="disclaimer-text">
+            I contenuti pubblicati su questo sito web, relativi a fatti di cronaca nera e procedimenti giudiziari in corso, hanno una finalità puramente informativa e giornalistica. Le informazioni riportate provengono da fonti aperte, comunicati ufficiali degli organi inquirenti e agenzie di stampa. Poiché le indagini e i procedimenti legali sono per loro natura dinamici, i fatti narrati, le interpretazioni e le ricostruzioni fornite possono essere soggetti a modifiche, rettifiche o integrazioni in qualsiasi momento, man mano che emergono nuovi elementi probatori o riscontri ufficiali.
+            Ogni riferimento a ipotesi investigative, piste d'indagine, ricostruzioni della dinamica dei fatti o responsabilità di soggetti terzi deve essere inteso come puramente ipotetico e non definitivo.
+
+            Nel rispetto dell'articolo 27 della Costituzione italiana, viene rigorosamente applicato il principio della presunzione di innocenza.
+        </div>
+        
+        <div class="disclaimer-footer">
+            <button id="disclaimer-confirm-btn" class="disclaimer-btn">
+                <span class="btn-scan-line"></span>
+                CONFERMA ACCESSO
+            </button>
+        </div>
+    </div>
+</div>
+
+    <div id="portal-overlay">
+        <div class="portal-title">GARLASCO</div>
+        <div class="triskelion-wrapper">
+            <svg class="triskelion-svg" viewBox="0 0 100 100">
+                <path d="M 50 35 
+                         C 50 15, 15 15, 15 42 
+                         C 15 65, 35 80, 50 88 
+                         C 65 80, 85 65, 85 42 
+                         C 85 15, 50 15, 50 35 Z" 
+                      stroke="#332510" stroke-width="1.5" fill="none"/>
+            </svg>
+            <button class="portal-node" id="node-2007">2007</button>
+            <button class="portal-node" id="node-2017">2017</button>
+            <button class="portal-node" id="node-2025">2025</button>
+        </div>
+    </div>
+
+    <div class="time-indicator">
+        <span>EPOCA: <span id="active-year-label" style="color:#d4af37;">NONE</span></span>
+        <span class="reset-timeline" id="change-epoch-btn"><i class="fa-solid fa-arrow-rotate-left"></i> CAMBIA</span>
+    </div>
+
+    <button id="audio-toggle-btn" class="audio-control" title="Disattiva Audio">
+        <i class="fa-solid fa-volume-high"></i>
+    </button>
+
+    <div id="cy"></div>
+
+    <div class="chrono-mini-box" id="open-timeline-btn" title="Apri Registro Eventi">
+        <i class="fa-solid fa-clock-history status-pulse"></i>
+    </div>
+
+    <div id="timeline-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+            <span style="font-size:10px; color:#555; letter-spacing: 2px;">CHRONO RECORD</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer; color:#555;" id="close-timeline-btn"></i>
+        </div>
+        <div id="timeline-events-container">
+            </div>
+    </div>
+
+    <div id="dossier-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:10px; color:#555; letter-spacing: 2px;">DOSSIER RECORD</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer; color:#555;" id="close-dossier-btn"></i>
+        </div>
+        <h2 id="dossier-name">Nome Soggetto</h2>
+
+        <div class="metadata-line">NATURA: <span id="meta-type">-</span></div>
+        <div class="metadata-line">PERIODO: <span id="meta-time">-</span></div>
+        <div class="metadata-line">ETÀ: <span id="meta-eta">-</span></div>
+        <div class="metadata-line">STATUS: <span id="meta-status">-</span></div>
+        <div class="metadata-line">COLLOCAZIONE: <span id="meta-luogo">-</span></div>
+        
+        <p id="dossier-desc">Selezionare un nodo per estrarre le informazioni.</p>
+
+        <div id="dossier-events-title" style="font-size:11px; color:#d4af37; letter-spacing:1px; margin-top:30px; margin-bottom:15px; text-transform:uppercase;">Eventi Collegati al Soggetto</div>
+        <div id="dossier-events-container"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,618 @@
+{
+  "characters": [
+    {
+      "id": "chiara",
+      "label": "CHIARA POGGI",
+      "timeline": {
+        "2007": { 
+          "position": { "x": 200, "y": 200},
+          "type": "Vittima", 
+          "time": "Agosto 2007", 
+          "eta": "26 anni",
+          "status": "Deceduta",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/chiarapoggi.png",
+          "foto_scheda": "banner/garlasco.png",
+          "info": "Trovata senza vita nella villetta di Via Pascoli il 13 Agosto 2007.",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2017": { 
+          "position": { "x": 200, "y": 200},
+          "type": "Vittima", 
+          "time": "Garlasco BIS", 
+          "eta": "26 anni",
+          "status": "Deceduta",
+          "luogo": "XXXX", 
+          "foto_mappa": "photos/chiarapoggi.png",
+          "foto_scheda": "immagini/2017/chiara_archivio_scheda.jpg",
+          "info": "Una nuova pista si apre, dove collegherebbe la vittima alla cerchia di amici del fratello Marco",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2025": {
+          "position": { "x": 200, "y": 0},  
+          "type": "Memoria Archivio", 
+          "time": "Garlasco BIS (bis)", 
+          "eta": "26 anni",
+          "status": "Deceduta",
+          "luogo": "XXXX",
+          "foto_mappa": "photos/chiarapoggi.png",
+          "foto_scheda": "immagini/2025/chiara_memoriale_scheda.jpg",
+          "info": "Uccisa per un rifiuto sessuale (ipotesi PM di Pavia)",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+    },
+    {
+      "id": "alberto",
+      "label": "ALBERTO STASI",
+      "timeline": {
+        "2007": { 
+          "position": { "x": 400, "y": 200},
+          "type": "Fidanzato della Vittima/Indagato", 
+          "time": "Agosto 2007", 
+          "eta": "24 anni",
+          "status": "In Vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/albertostasi.jpg",
+          "foto_scheda": "immagini/2007/alberto_scheda.jpg",
+          "info": "Scopre il corpo e lancia l'allarme alle autorità.", 
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "13 Agosto 2007", "titolo": "Ritrovamento del corpo", "descrizione": "Alberto Stasi scopre il corpo di Chiara Poggi." },
+            { "data": "20 Agosto 2007", "titolo": "Iscrizione nel registro", "descrizione": "Alberto Stasi viene formalmente iscritto tra gli indagati."},
+            { "data": "Dicembre 2015", "titolo": "Sentenza Cassazione", "descrizione": "Condanna definitiva a 16 anni per Alberto Stasi." }
+          ]        
+        },
+        "2025": {
+          "position": { "x": 900, "y": 0},
+          "type": "Carcerato", 
+          "time": "2026", 
+          "eta": "41 anni",
+          "status": "In Vita",
+          "luogo": "Bollate (MI)",
+          "foto_mappa": "photos/2025/albertostasi2025.png",
+          "foto_scheda": "immagini/2007/alberto_scheda.jpg",
+          "info": "Lavora come contabile", 
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+    
+          ]        
+        }
+      }
+    },
+    {
+      "id": "rita",
+      "label": "RITA PREDA",
+      "timeline": {
+        "2007": { 
+          "position": { "x": 200, "y": -200},
+          "type": "Madre della Vittima", 
+          "time": "Agosto 2007", 
+          "eta": "53 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/ritapreda2007.png",
+          "foto_scheda": "photos/silhouette.jpg",
+          "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "giuseppe",
+      "label": "GIUSEPPE POGGI",
+      "timeline": {
+        "2007": { 
+          "position": { "x": -200, "y": -200},
+          "type": "Padre della Vittima", 
+          "time": "Agosto 2007", 
+          "eta": "53 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/giuseppepoggi2007.png",
+          "foto_scheda": "photos/silhouette.jpg",
+          "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+
+    {
+      "id": "marco",
+      "label": "MARCO POGGI",
+      "timeline": {
+        "2007": { 
+          "position": { "x": -200, "y": 200},
+          "type": "Fratello della Vittima", 
+          "time": "Agosto 2007", 
+          "eta": "19 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/marcopoggi2007.png",
+          "foto_scheda": "photos/silhouette.jpg",
+          "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2017": {
+          "position": { "x": 400, "y": 200}, 
+          "type": "Fratello della Vittima/Amico dell'Indagato", 
+          "time": "Inchiesta Bis", 
+          "eta": "29 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2017/marcopoggi2017.png",
+          "foto_scheda": "immagini/2017",
+          "info": "Rappresenta la famiglia Poggi nelle successive istanze legali e contro-perizie.",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2025": {
+          "position": { "x": 200, "y": 200}, 
+          "type": "Fratello della Vittima/Amico dell'Indagato", 
+          "time": "Inchiesta Bis (bis)", 
+          "eta": "37 anni",
+          "status": "In vita",
+          "luogo": "XXXX (VE)",
+          "foto_mappa": "photos/2017/marcopoggi2017.png",
+          "foto_scheda": "immagini/2025/rita_memoriale.jpg",
+          "info": "Rappresenta la famiglia Poggi nelle successive istanze legali e contro-perizie.",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+
+    {
+      "id": "andrea",
+      "label": "ANDREA SEMPIO",
+      "timeline": {
+        "2007": {
+          "position": { "x": -200, "y": 400}, 
+          "type": "Amico del fratello della Vittima", 
+          "time": "Agosto 2007", 
+          "eta": "19 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/andreasempio2007.png",
+          "foto_scheda": "photos/silhouette.jpg",
+          "info": "Amico di Marco Poggi",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2017": {
+          "position": { "x": 300, "y": 50},  
+          "type": "Indagato", 
+          "time": "Garlasco 2.0", 
+          "eta": "29 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2017/andreasempio2017.png",
+          "foto_scheda": "immagini/2017",
+          "info": "Archiviata l'indagine a suo carico per omicidio",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2025": {
+          "position": { "x": 0, "y": 200}, 
+          "type": "Indagato", 
+          "time": "Garlasco 3.0", 
+          "eta": "37 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/andreasempio2025.png",
+          "foto_scheda": "immagini/2025/rita_memoriale.jpg",
+          "info": "Presunto Assassino di Chiara Poggi",
+          "sfondo_dossier": "background/fog.gif",
+           "events": [
+                  { "data": "27 Febbraio 2025", "titolo": "Avviso di Garanzia", "descrizione": "Andrea Sempio nuovamente indagato per l'omicidio di Chiara Poggi in concorso con Alberto Stasi o ignoti" },
+                  { "data": "14 Maggio 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita. Oltre loro vengono perquisiti i dispositivi informatici degli amici dell'indagato, Roberto Freddi e Mattia Capra." },
+                  { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" },
+                  { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Denise Albani ha cristalizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" }
+           ] 
+      }
+      }
+      
+    },
+
+    {
+      "id": "alessandro",
+      "label": "ALESSANDRO BIASIBETTI",
+      "timeline": {
+        "2007": {
+          "position": { "x": -400, "y": 400},  
+          "type": "Amico del fratello della Vittima", 
+          "time": "Agosto 2007", 
+          "eta": "19 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/alessandrobiasibetti2007.png",
+          "foto_scheda": "photos/silhouette.jpg",
+          "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia con i Poggi",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2025": {
+          "position": { "x": 100, "y": 400}, 
+          "type": "Amico del fratello della Vittima", 
+          "time": "Garlasco 3.0", 
+          "eta": "37 anni",
+          "status": "In vita",
+          "luogo": "Roma",
+          "foto_mappa": "photos/2025/alessandrobiasibetti2025.png",
+          "foto_scheda": "",
+          "info": "Amico di Marco Poggi/Andrea Sempio",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+
+    {
+      "id": "f.biasibetti",
+      "label": "FAMIGLIA BIASIBETTI",
+      "timeline": {
+        "2007": {
+          "position": { "x": -600, "y": 600},  
+          "type": "Amici della Famiglia della Vittima", 
+          "time": "Agosto 2007", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "banner/couplesilhouette.png",
+          "info": "Al momento del delitto si trovavano fuori Garlasco con la famiglia Poggi.",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "daniela",
+      "label": "DANIELA FERRARI",
+      "timeline": {
+        "2025": {
+          "position": { "x": 150, "y": -200},   
+          "type": "Madre dell'Indagato", 
+          "time": "2025", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/danielaferrari2025.png",
+          "info": "Sostiene l'innocenza del figlio",
+          "sfondo_dossier": "background/fog.gif",
+           "events": [
+                  { "data": "14 Maggio 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita. Oltre loro vengono perquisiti i dispositivi informatici degli amici dell'indagato, Roberto Freddi e Mattia Capra." },
+                  { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" }
+           ]  
+        }
+      }
+      
+    },
+    {
+      "id": "giuseppes",
+      "label": "GIUSEPPE SEMPIO",
+      "timeline": {
+        "2025": {
+          "position": { "x": -150, "y": -200},  
+          "type": "Padre dell'Indagato", 
+          "time": "2025", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/giuseppesempio2025.png",
+          "info": "Sostiene l'innocenza del figlio/Indagato come corruttore",
+          "sfondo_dossier": "background/fog.gif",
+           "events": [
+                  { "data": "14 Maggio 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita. Oltre loro vengono perquisiti i dispositivi informatici degli amici dell'indagato, Roberto Freddi e Mattia Capra." },
+                  { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" },
+                  { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Denise Albani ha cristalizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" }
+           ]  
+        }
+      }
+      
+    },
+    {
+      "id": "silvio",
+      "label": "SILVIO SAPONE",
+      "timeline": {
+        "2025": {
+          "position": { "x": -400, "y": 100}, 
+          "type": "ex Luogotenente", 
+          "time": "2025", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/silviosapone2025.png",
+          "info": "Responsabile della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "giuseppesp",
+      "label": "GIUSEPPE SPOTO",
+      "timeline": {
+        "2025": {
+          "position": { "x": -400, "y": 300},  
+          "type": "ex Maresciallo", 
+          "time": "2025", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/giuseppespoto2025.png",
+          "info": "Membro della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "mario",
+      "label": "Mario Venditti",
+      "timeline": {
+        "2025": {
+          "position": { "x": -600, "y": -200},   
+          "type": "ex Pubblico Ministero di Pavia ai tempi del fascicolo 2016-2017 a carico di Andrea Sempio", 
+          "time": "Agosto 2007", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/mariovenditti2025.png",
+          "info": "Indagato come corrotto",
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "Mario Venditti viene perquisito dalla procura di Brescia dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025 a casa dei Sempio. Viene inserito nel registro degli indagati come corrotto per l'indagine archiviata a carico di Andrea Sempio del 2016-2017"}
+          ]  
+        }
+      }
+      
+    },
+    {
+      "id": "maurizio",
+      "label": "MAURIZIO PAPPALARDO",
+      "timeline": {
+        "2025": {
+          "position": { "x": 0, "y": -600},  
+          "type": "ex Luogotenente dei Carabinieri", 
+          "time": "2025", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/mauriziopappalardo2025.png",
+          "info": "Condannato per Corruzione",
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "24 Dicembre 2016", "titolo": "Elemento Investigativo", "descrizione": "Durante le Indagini Clean 2 (2020-2025) si scopre che, il giorno dopo l'iscrizione di Sempio nel registro degli indagati in relazione all'Omicidio di Chiara Poggi, Pappalardo alla vigilia del Natale 2016 si reca alla Procura di Pavia per fare delle foto di documenti (secretati) sul fascicolo aperto a carico di Andrea Sempio. Secondo le ipotesi investigative Pappalardo si sarebbe diretto verso la procura di Pavia dopo degli 'insistenti messaggi' del Carabiniere Forestale Scoppetta. Si tratterebbe del primo grave indizio di una catena di eventi di un'ipotesi di corruzione per l'archiviazione a carico di Sempio Andrea."}
+          ]   
+        }
+      }
+      
+    },
+    {
+      "id": "antonios",
+      "label": "ANTONIO SCOPPETTA",
+      "timeline": {
+        "2025": {
+          "position": { "x": 0, "y": -400},
+          "type": "ex Carabiniere del nucleo Forestale", 
+          "time": "2025", 
+          "eta": "XXXXX",
+          "status": "In Vita",
+          "luogo": "Carcere di Opera (MI)",
+          "foto_mappa": "photos/2025/antonioscoppetta2025.png",
+          "info": "Condannato per corruzione, induzione indebita e stalking.", 
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "Dicembre 2016", "titolo": "Invito in Procura", "descrizione": "Il Maresciallo Antonio Scoppetta chiamò Pappalardo in Procura «con insistenti messaggi», anche lui oggi condannato per corruzione. I documenti vengono fotografati (da Pappalardo) su un tavolo di vetro verde: è il tavolo del procuratore aggiunto, Venditti. Quando nell'ottobre 2025 il Procutatore Aggiunto C di Pavia Civardi viene a saperlo, chiede spiegazioni agli uffici dell'Arma di Pavia. Di quelle fotografie non c'è traccia, ma salta fuori un «fascicolo P» intestato a Sempio nel 2017. E lì dentro, a sorpresa, c'è una bozza della richiesta di archiviazione dell'indagine a carico di Sempio, l'archiviazione lampo decisa da Venditti. Nella bozza c'è un appunto scritto a mano, che propone delle correzioni che poi verranno recepite nella richiesta definitiva. Di chi è l'appunto? Chi ha passato la bozza ai carabinieri? (fonte Il Giornale 11 Maggio 2026)" }
+          ]        
+        }
+      }
+      
+    },
+    {
+      "id": "whois",
+      "label": "?????",
+      "timeline": {
+        "2025": {
+          "position": { "x": 280, "y": -400},
+          "type": "XXXXX", 
+          "time": "XXXXX", 
+          "eta": "XXXXX",
+          "status": "XXXXX",
+          "luogo": "XXXXX",
+          "foto_mappa": "banner/whois.png",
+          "info": "Il tramite che avrebbe permesso di collegare il corrotto (Mario Venditti) e il corruttore (Giuseppe Sempio)", 
+          "sfondo_dossier": "background/fog.gif"       
+        }
+      }
+      
+    },
+    {
+      "id": "p.civile",
+      "label": "FAMIGLIA POGGI",
+      "timeline": {
+        "2025": {
+          "position": { "x": 400, "y": -200}, 
+          "type": "Familiari della Famiglia della Vittima", 
+          "time": "2025-2026", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2025/famigliapoggi2025.png",
+          "info": "Contrari alla Revisione su Alberto",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "stefania",
+      "label": "STEFANIA CAPPA",
+      "timeline": {
+        "2007": {
+          "position": { "x": -700, "y": 200},  
+          "type": "Cugina della Vittima", 
+          "time": "Agosto 2007",
+          "eta": "23 anni", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/stefaniacappa2007.png",
+          "info": "Una delle ultime persone ad aver visto Chiara nei giorni precedenti all'omicidio",
+          "sfondo_dossier": "background/fog.gif" 
+        },
+        "2025": {
+          "position": { "x": 400, "y": 200},
+          "type": "Avvocato", 
+          "time": "2026", 
+          "eta": "41 anni",
+          "status": "In Vita",
+          "luogo": "Milano",
+          "foto_mappa": "photos/2025/stefaniacappa2025.png",
+          "info": "Avvocato presso Cappa & Partners", 
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "13 Luglio 2022", "titolo": "Chiamata", "descrizione": "L'avvocato Cappa chiama l'avvocato De Rensis in un tentativo di invitarlo al CONI. Le circostanze dell'avvenimento rimangono sfumate." },
+            { "data": "Maggio 2026", "titolo": "Denuncia", "descrizione": "L'avvocato Cappa denuncia l'avvocato De Rensis, l'ex Maresciallo dei Carabinier Francesco Marchetto (di Garlasco) e Alessandro De Giuseppe (Inviato presso il Programma Iene) per 'associazione a delinquere'." }
+          ]        
+        }
+      }
+      
+    },
+    {
+      "id": "paola",
+      "label": "PAOLA CAPPA",
+      "timeline": {
+        "2007": {
+          "position": { "x": -400, "y": 200},  
+          "type": "Cugina della Vittima", 
+          "time": "Agosto 2007", 
+          "eta" : "23 anni",
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/paolacappa2007.png",
+          "info": "Una delle ultime persone ad aver visto Chiara nei giorni precedenti all'omicidio",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "maria",
+      "label": "MARIA ROSA ASSUNTA POGGI",
+      "timeline": {
+        "2007": { 
+          "position": { "x": -400, "y": -200},
+          "type": "Zia della Vittima", 
+          "time": "Agosto 2007", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/mariarosapoggi2007.png",
+          "info": "Una delle ultime persone ad aver visto Chiara nei giorni precedenti all'omicidio",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "ermanno",
+      "label": "ERMANNO CAPPA",
+      "timeline": {
+        "2007": {
+          "position": { "x": -700, "y": -200}, 
+          "type": "Zio della Vittima", 
+          "time": "Agosto 2007", 
+          "status": "In vita",
+          "luogo": "Garlasco (PV)",
+          "foto_mappa": "photos/2007/ermannocappa2007.png",
+          "info": "Illustre Avvocato. Al momento del delitto si trovava fuori Garlasco.",
+          "sfondo_dossier": "background/fog.gif" 
+        }
+      }
+      
+    },
+    {
+      "id": "antonio",
+      "label": "ANTONIO DE RENSIS",
+      "timeline": {
+        "2025": {
+          "position": { "x": 600, "y": 200},
+          "type": "Avvocato", 
+          "time": "2026", 
+          "eta": "62 anni",
+          "status": "In Vita",
+          "luogo": "XXXX",
+          "foto_mappa": "photos/2025/antonioderensis2025.png",
+          "info": "Difende il condannato Alberto Stasi", 
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "13 Luglio 2022", "titolo": "Intimidazione/Coincidenza", "descrizione": "L'avvocato riceve una telefonata dall'avvocato Cappa Stefania circa cinque ore dopo esser uscito dalla procura di Pavia. Quel giorno la difesa Stasi per la prima volta riuscì ad ottenere informazioni sul fascicolo (2016-2017) a carico di Andrea Sempio. Solo la Procura di Pavia e persone vicine a De Rensis sapevano che fosse l'avvocato di Stasi. Quella chiamata 'turbò' De Rensis. Il 21/05/26 fu svelato ad Ore 14 Sera (programma RAI) del tentativo dell'avvocato Cappa di mettersi in contatto con De Rensis." }
+          ]        
+        }
+      }
+      
+    }
+  ],
+  "links": {
+    "2007": [
+      { "data": { "id": "e1", "source": "chiara", "target": "alberto", "edgeType": "connessione" } },
+      { "data": { "id": "e2", "source": "chiara", "target": "rita", "edgeType": "connessione" } },
+      { "data": { "id": "e3", "source": "chiara", "target": "giuseppe", "edgeType": "connessione" } },
+      { "data": { "id": "e4", "source": "rita", "target": "giuseppe", "edgeType": "connessione" } },
+      { "data": { "id": "e5", "source": "chiara", "target": "marco", "edgeType": "connessione" } },
+      { "data": { "id": "e6", "source": "marco", "target": "rita", "edgeType": "connessione" } },
+      { "data": { "id": "e7", "source": "marco", "target": "giuseppe", "edgeType": "connessione" } },
+      { "data": { "id": "e8", "source": "marco", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e9", "source": "marco", "target": "alessandro", "edgeType": "connessione" } },
+      { "data": { "id": "e10", "source": "f.biasibetti", "target": "alessandro", "edgeType": "connessione" } },
+      { "data": { "id": "e11", "source": "maria", "target": "giuseppe", "edgeType": "connessione" } },
+      { "data": { "id": "e12", "source": "maria", "target": "ermanno", "edgeType": "connessione" } },
+      { "data": { "id": "e13", "source": "maria", "target": "paola", "edgeType": "connessione" } },
+      { "data": { "id": "e14", "source": "maria", "target": "stefania", "edgeType": "connessione" } },
+      { "data": { "id": "e15", "source": "ermanno", "target": "paola", "edgeType": "connessione" } },
+      { "data": { "id": "e16", "source": "ermanno", "target": "stefania", "edgeType": "connessione" } },
+      { "data": { "id": "e17", "source": "paola", "target": "stefania", "edgeType": "connessione" } }
+    ],
+    "2017": [
+      { "data": { "id": "e1", "source": "chiara", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e2", "source": "chiara", "target": "marco", "edgeType": "connessione" } },
+      { "data": { "id": "e3", "source": "marco", "target": "andrea", "edgeType": "connessione" } }
+    ],
+    "2025": [
+      { "data": { "id": "e1", "source": "marco", "target": "alessandro", "edgeType": "connessione" } },
+      { "data": { "id": "e2", "source": "marco", "target": "chiara", "edgeType": "connessione" } },
+      { "data": { "id": "e3", "source": "marco", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e4", "source": "andrea", "target": "alessandro", "edgeType": "connessione" } },
+      { "data": { "id": "e6", "source": "andrea", "target": "chiara", "edgeType": "connessione" } },
+      { "data": { "id": "e7", "source": "daniela", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e8", "source": "daniela", "target": "giuseppes", "edgeType": "connessione" } },
+      { "data": { "id": "e9", "source": "giuseppes", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e11", "source": "mario", "target": "giuseppesp", "edgeType": "connessione" } },
+      { "data": { "id": "e12", "source": "mario", "target": "silvio", "edgeType": "connessione" } },
+      { "data": { "id": "e13", "source": "andrea", "target": "silvio", "edgeType": "connessione" } },
+      { "data": { "id": "e14", "source": "andrea", "target": "giuseppesp", "edgeType": "connessione" } },
+      { "data": { "id": "e15", "source": "p.civile", "target": "chiara", "edgeType": "connessione" } },
+      { "data": { "id": "e16", "source": "p.civile", "target": "marco", "edgeType": "connessione" } },
+      { "data": { "id": "e17", "source": "maurizio", "target": "antonios", "edgeType": "connessione" } },
+      { "data": { "id": "e18", "source": "maurizio", "target": "mario", "edgeType": "connessione" } },
+      { "data": { "id": "e19", "source": "daniela", "target": "whois", "edgeType": "connessione" } },
+      { "data": { "id": "e20", "source": "antonio", "target": "alberto", "edgeType": "connessione" } },
+      { "data": { "id": "e21", "source": "stefania", "target": "antonio", "edgeType": "connessione" } },
+      { "data": { "id": "e22", "source": "stefania", "target": "chiara", "edgeType": "connessione" } },
+      { "data": { "id": "e23", "source": "stefania", "target": "marco", "edgeType": "connessione" } },
+      { "data": { "id": "e24", "source": "stefania", "target": "p.civile", "edgeType": "connessione" } },
+      { "data": { "id": "e26", "source": "whois", "target": "giuseppes", "edgeType": "connessione" } },
+      { "data": { "id": "e27", "source": "antonios", "target": "whois", "edgeType": "connessione" } },
+      { "data": { "id": "e28", "source": "antonios", "target": "mario", "edgeType": "connessione" } },
+      { "data": { "id": "e29", "source": "antonios", "target": "andrea", "edgeType": "connessione" } }
+    ]
+  },
+  "events": {
+    "2007": [
+      { "data": "13 Agosto 2007", "titolo": "Ritrovamento del corpo", "descrizione": "Chiara Poggi viene trovata priva di vita nella villetta di Via Pascoli." },
+      { "data": "16 Agosto 2007", "titolo": "Sopralluogo", "descrizione": "I RIS di Parma fanno il primo sopralluogo nella villetta di Via Pascoli." },
+      { "data": "20 Agosto 2007", "titolo": "Iscrizione nel registro", "descrizione": "Alberto Stasi viene iscritto nel registro degli indagati." }
+    ],
+    "2017": [
+      { "data": "Dicembre 2015", "titolo": "Sentenza Cassazione", "descrizione": "Condanna definitiva a 16 anni per Alberto Stasi." },
+      { "data": "Inizio 2017", "titolo": "Inchiesta Bis", "descrizione": "Valutazione di profili genetici alternativi e respingimento dei ricorsi." }
+    ],
+    "2025": [
+      { "data": "27 Febbraio 2025", "titolo": "Avviso di Garanzia", "descrizione": "Andrea Sempio nuovamente indagato per l'omicidio di Chiara Poggi in concorso con Alberto Stasi o ignoti" },
+      { "data": "14 Maggio 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita. Oltre loro vengono perquisiti i dispositivi informatici degli amici dell'indagato, Roberto Freddi e Mattia Capra." },
+      { "data": "14 Maggio 2025", "titolo": "Dragaggio", "descrizione": "Il canale di Tromello viene dragato, adiacente alla ex-casa della nonna paterna delle gemelle Cappa. Il provvedimento è stato preso dopo una testimonianza de relato di Bruscagin riguardo un possibile borsone buttato nel canale il 13 Agosto 2007 dove avrebbe coinvolto le gemelle Cappa il giorno dell'omicidio"},
+      { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" },
+      { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "Mario Venditti viene perquisito dalla procura di Brescia come conseguenza del bigliettino e inserito nel registro degli indagati come corrotto per l'indagine archiviata a carico di Andrea Sempio del 2016-2017"},
+      { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Denise Albani ha cristalizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" }
+    ]
+  }
+}
