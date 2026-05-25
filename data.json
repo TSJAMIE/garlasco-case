@@ -11,8 +11,8 @@
           "eta": "26 anni",
           "status": "Deceduta",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/chiarapoggi.png",
-          "foto_scheda": "banner/garlasco.png",
+          "foto_mappa": "photos/chiarapoggi.webp",
+          "foto_scheda": "banner/garlasco.webp",
           "info": "Trovata senza vita nella villetta di Via Pascoli il 13 Agosto 2007.",
           "sfondo_dossier": "background/fog.gif" 
         },
@@ -23,7 +23,7 @@
           "eta": "26 anni",
           "status": "Deceduta",
           "luogo": "XXXX", 
-          "foto_mappa": "photos/chiarapoggi.png",
+          "foto_mappa": "photos/chiarapoggi.webp",
           "foto_scheda": "immagini/2017/chiara_archivio_scheda.jpg",
           "info": "Una nuova pista si apre, dove collegherebbe la vittima alla cerchia di amici del fratello Marco",
           "sfondo_dossier": "background/fog.gif" 
@@ -35,7 +35,7 @@
           "eta": "26 anni",
           "status": "Deceduta",
           "luogo": "XXXX",
-          "foto_mappa": "photos/chiarapoggi.png",
+          "foto_mappa": "photos/chiarapoggi.webp",
           "foto_scheda": "immagini/2025/chiara_memoriale_scheda.jpg",
           "info": "Uccisa per un rifiuto sessuale (ipotesi PM di Pavia)",
           "sfondo_dossier": "background/fog.gif" 
@@ -53,7 +53,7 @@
           "eta": "24 anni",
           "status": "In Vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/albertostasi.jpg",
+          "foto_mappa": "photos/2007/albertostasi.webp",
           "foto_scheda": "immagini/2007/alberto_scheda.jpg",
           "info": "Scopre il corpo e lancia l'allarme alle autorità.", 
           "sfondo_dossier": "background/fog.gif",
@@ -70,7 +70,7 @@
           "eta": "41 anni",
           "status": "In Vita",
           "luogo": "Bollate (MI)",
-          "foto_mappa": "photos/2025/albertostasi2025.png",
+          "foto_mappa": "photos/2025/albertostasi2025.webp",
           "foto_scheda": "immagini/2007/alberto_scheda.jpg",
           "info": "Lavora come contabile", 
           "sfondo_dossier": "background/fog.gif",
@@ -91,7 +91,7 @@
           "eta": "53 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/ritapreda2007.png",
+          "foto_mappa": "photos/2007/ritapreda2007.webp",
           "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
           "sfondo_dossier": "background/fog.gif" 
@@ -110,7 +110,7 @@
           "eta": "53 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/giuseppepoggi2007.png",
+          "foto_mappa": "photos/2007/giuseppepoggi2007.webp",
           "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
           "sfondo_dossier": "background/fog.gif" 
@@ -130,7 +130,7 @@
           "eta": "19 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/marcopoggi2007.png",
+          "foto_mappa": "photos/2007/marcopoggi2007.webp",
           "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
           "sfondo_dossier": "background/fog.gif" 
@@ -142,7 +142,7 @@
           "eta": "29 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2017/marcopoggi2017.png",
+          "foto_mappa": "photos/2017/marcopoggi2017.webp",
           "foto_scheda": "immagini/2017",
           "info": "Rappresenta la famiglia Poggi nelle successive istanze legali e contro-perizie.",
           "sfondo_dossier": "background/fog.gif" 
@@ -154,7 +154,7 @@
           "eta": "37 anni",
           "status": "In vita",
           "luogo": "XXXX (VE)",
-          "foto_mappa": "photos/2017/marcopoggi2017.png",
+          "foto_mappa": "photos/2017/marcopoggi2017.webp",
           "foto_scheda": "immagini/2025/rita_memoriale.jpg",
           "info": "Rappresenta la famiglia Poggi nelle successive istanze legali e contro-perizie.",
           "sfondo_dossier": "background/fog.gif" 
@@ -174,7 +174,7 @@
           "eta": "19 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/andreasempio2007.png",
+          "foto_mappa": "photos/2007/andreasempio2007.webp",
           "foto_scheda": "photos/silhouette.jpg",
           "info": "Amico di Marco Poggi",
           "sfondo_dossier": "background/fog.gif" 
@@ -186,7 +186,7 @@
           "eta": "29 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2017/andreasempio2017.png",
+          "foto_mappa": "photos/2017/andreasempio2017.webp",
           "foto_scheda": "immagini/2017",
           "info": "Archiviata l'indagine a suo carico per omicidio",
           "sfondo_dossier": "background/fog.gif" 
@@ -198,7 +198,7 @@
           "eta": "37 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/andreasempio2025.png",
+          "foto_mappa": "photos/2025/andreasempio2025.webp",
           "foto_scheda": "immagini/2025/rita_memoriale.jpg",
           "info": "Presunto Assassino di Chiara Poggi",
           "sfondo_dossier": "background/fog.gif",
@@ -224,7 +224,7 @@
           "eta": "19 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/alessandrobiasibetti2007.png",
+          "foto_mappa": "photos/2007/alessandrobiasibetti2007.webp",
           "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia con i Poggi",
           "sfondo_dossier": "background/fog.gif" 
@@ -236,7 +236,7 @@
           "eta": "37 anni",
           "status": "In vita",
           "luogo": "Roma",
-          "foto_mappa": "photos/2025/alessandrobiasibetti2025.png",
+          "foto_mappa": "photos/2025/alessandrobiasibetti2025.webp",
           "foto_scheda": "",
           "info": "Amico di Marco Poggi/Andrea Sempio",
           "sfondo_dossier": "background/fog.gif" 
@@ -255,7 +255,7 @@
           "time": "Agosto 2007", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "banner/couplesilhouette.png",
+          "foto_mappa": "banner/couplesilhouette.webp",
           "info": "Al momento del delitto si trovavano fuori Garlasco con la famiglia Poggi.",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -272,7 +272,7 @@
           "time": "2025", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/danielaferrari2025.png",
+          "foto_mappa": "photos/2025/danielaferrari2025.webp",
           "info": "Sostiene l'innocenza del figlio",
           "sfondo_dossier": "background/fog.gif",
            "events": [
@@ -293,7 +293,7 @@
           "time": "2025", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/giuseppesempio2025.png",
+          "foto_mappa": "photos/2025/giuseppesempio2025.webp",
           "info": "Sostiene l'innocenza del figlio/Indagato come corruttore",
           "sfondo_dossier": "background/fog.gif",
            "events": [
@@ -315,7 +315,7 @@
           "time": "2025", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/silviosapone2025.png",
+          "foto_mappa": "photos/2025/silviosapone2025.webp",
           "info": "Responsabile della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -332,7 +332,7 @@
           "time": "2025", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/giuseppespoto2025.png",
+          "foto_mappa": "photos/2025/giuseppespoto2025.webp",
           "info": "Membro della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -349,7 +349,7 @@
           "time": "Agosto 2007", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/mariovenditti2025.png",
+          "foto_mappa": "photos/2025/mariovenditti2025.webp",
           "info": "Indagato come corrotto",
           "sfondo_dossier": "background/fog.gif",
           "events": [
@@ -369,7 +369,7 @@
           "time": "2025", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/mauriziopappalardo2025.png",
+          "foto_mappa": "photos/2025/mauriziopappalardo2025.webp",
           "info": "Condannato per Corruzione",
           "sfondo_dossier": "background/fog.gif",
           "events": [
@@ -390,7 +390,7 @@
           "eta": "XXXXX",
           "status": "In Vita",
           "luogo": "Carcere di Opera (MI)",
-          "foto_mappa": "photos/2025/antonioscoppetta2025.png",
+          "foto_mappa": "photos/2025/antonioscoppetta2025.webp",
           "info": "Condannato per corruzione, induzione indebita e stalking.", 
           "sfondo_dossier": "background/fog.gif",
           "events": [
@@ -411,7 +411,7 @@
           "eta": "XXXXX",
           "status": "XXXXX",
           "luogo": "XXXXX",
-          "foto_mappa": "banner/whois.png",
+          "foto_mappa": "banner/whois.webp",
           "info": "Il tramite che avrebbe permesso di collegare il corrotto (Mario Venditti) e il corruttore (Giuseppe Sempio)", 
           "sfondo_dossier": "background/fog.gif"       
         }
@@ -428,7 +428,7 @@
           "time": "2025-2026", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/famigliapoggi2025.png",
+          "foto_mappa": "photos/2025/famigliapoggi2025.webp",
           "info": "Contrari alla Revisione su Alberto",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -446,7 +446,7 @@
           "eta": "23 anni", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/stefaniacappa2007.png",
+          "foto_mappa": "photos/2007/stefaniacappa2007.webp",
           "info": "Una delle ultime persone ad aver visto Chiara nei giorni precedenti all'omicidio",
           "sfondo_dossier": "background/fog.gif" 
         },
@@ -457,7 +457,7 @@
           "eta": "41 anni",
           "status": "In Vita",
           "luogo": "Milano",
-          "foto_mappa": "photos/2025/stefaniacappa2025.png",
+          "foto_mappa": "photos/2025/stefaniacappa2025.webp",
           "info": "Avvocato presso Cappa & Partners", 
           "sfondo_dossier": "background/fog.gif",
           "events": [
@@ -479,7 +479,7 @@
           "eta" : "23 anni",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/paolacappa2007.png",
+          "foto_mappa": "photos/2007/paolacappa2007.webp",
           "info": "Una delle ultime persone ad aver visto Chiara nei giorni precedenti all'omicidio",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -496,7 +496,7 @@
           "time": "Agosto 2007", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/mariarosapoggi2007.png",
+          "foto_mappa": "photos/2007/mariarosapoggi2007.webp",
           "info": "Una delle ultime persone ad aver visto Chiara nei giorni precedenti all'omicidio",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -513,7 +513,7 @@
           "time": "Agosto 2007", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2007/ermannocappa2007.png",
+          "foto_mappa": "photos/2007/ermannocappa2007.webp",
           "info": "Illustre Avvocato. Al momento del delitto si trovava fuori Garlasco.",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -531,7 +531,7 @@
           "eta": "62 anni",
           "status": "In Vita",
           "luogo": "XXXX",
-          "foto_mappa": "photos/2025/antonioderensis2025.png",
+          "foto_mappa": "photos/2025/antonioderensis2025.webp",
           "info": "Difende il condannato Alberto Stasi", 
           "sfondo_dossier": "background/fog.gif",
           "events": [
