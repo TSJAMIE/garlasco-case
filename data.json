@@ -14,7 +14,10 @@
           "foto_mappa": "photos/chiarapoggi.webp",
           "foto_scheda": "banner/garlasco.webp",
           "info": "Trovata senza vita nella villetta di Via Pascoli il 13 Agosto 2007.",
-          "sfondo_dossier": "background/fog.gif" 
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "13 Agosto 2007", "titolo": "Decesso", "descrizione": "Chiara Poggi viene aggredita e uccisa di mattina. La causa è ignota." }
+          ]         
         },
         "2017": { 
           "position": { "x": 200, "y": 200},
@@ -289,7 +292,7 @@
       "timeline": {
         "2025": {
           "position": { "x": -150, "y": -200},  
-          "type": "Padre dell'Indagato", 
+          "type": "Indagato per Corruzione", 
           "time": "2025", 
           "status": "In vita",
           "luogo": "Garlasco (PV)",
@@ -299,6 +302,7 @@
            "events": [
                   { "data": "14 Maggio 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita. Oltre loro vengono perquisiti i dispositivi informatici degli amici dell'indagato, Roberto Freddi e Mattia Capra." },
                   { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" },
+                  { "data": "26 Settembre 2025", "titolo": "Indagato", "descrizione": "Giuseppe Sempio entra a far parte del fascicolo d'indagine su Mario Venditti (come corruttore) per l'archiviazione su Andrea Sempio del (2016-2017)." },
                   { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Denise Albani ha cristalizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" }
            ]  
         }
