@@ -602,21 +602,28 @@
   },
   "events": {
     "2007": [
-      { "data": "13 Agosto 2007", "titolo": "Ritrovamento del corpo", "descrizione": "Chiara Poggi viene trovata priva di vita nella villetta di Via Pascoli." },
+      { "data": "13 Agosto 2007", "titolo": "Ritrovamento del corpo", "descrizione": "Poggi Chiara viene trovata priva di vita nella villetta di Via Pascoli da Stasi Alberto alle 13:55." },
+      { "data": "13 Agosto 2007", "titolo": "Testimonianza", "descrizione": "La teste Bermani Franca afferma che la mattina alle 9:10 ci fosse una bicicletta nera da donna davanti casa di Poggi Chiara." },
       { "data": "16 Agosto 2007", "titolo": "Sopralluogo", "descrizione": "I RIS di Parma fanno il primo sopralluogo nella villetta di Via Pascoli." },
-      { "data": "20 Agosto 2007", "titolo": "Iscrizione nel registro", "descrizione": "Alberto Stasi viene iscritto nel registro degli indagati." }
+      { "data": "20 Agosto 2007", "titolo": "Iscrizione nel registro degli Indagati", "descrizione": " La Procura di Vigevano iscrive Stasi Alberto nel registro degli indagati per l'omicidio di Poggi Chiara." },
+      { "data": "24 Settembre 2007", "titolo": "Arresto", "descrizione": "Il PM Muscio Rosa dispone il fermo di Stasi, il provvedimento scatta dopo il rinvenimento dei RIS di Parma di materiale ematico sul pedale della bicicletta rossa da uomo." },
+      { "data": "28 Settembre 2007", "titolo": "Scarcerazione", "descrizione": "Il GIP Pravon Giulia non convalida il fermo e scarcera Stasi per insufficenza di prove. Le tracce trovate sul pedale erano prive di emoglobina, in sintesi non era materiale ematico. Poteva essere sudore/saliva. Inoltre la bici non corrispondeva con quella descritta dalla Teste Bermani."},
+      { "data": "05 Novembre 2007", "titolo": "Autopsia", "descrizione": "L'autopsia su Poggi Chiara svela un'aggressione violenta. Si parla di quindici colpi inferti di cui quello mortale è stato inferto alla nuca. Il medico legale Ballardini Marco collocherà l'orario della morte nella mattina del 13 Agosto con centratura verso le 11:00-11:30." },
+      { "data": "10 Ottobre 2009", "titolo": "Alibi", "descrizione": "La perizia Porta-Occhetti depositata dimostrò che Stasi Alberto dalle 09:35 alle 12:00 (cercare orario preciso) era davanti al computer di casa che lavorava alla tesi di Laurea. Venne così dimostrato a due anni dall'omicidio che la mattinata raccontata a SIT sin dall'inizio da Stasi corrispondeva alla verità. Il suo alibi di fatto non lo inseriva a casa Poggi durante l'orario della morte circoscritta dal medico legale Ballardini." },
+      { "data": "17 Dicembre 2009", "titolo": "Assoluzione", "descrizione": "GUP di Vigevano Vitelli Stefano assolve Stasi Alberto «[...] per non aver commesso il fatto». Ed è così che finisce il processo di primo grado a carico di Stasi Alberto. La famiglia Poggi afferma che farà ricorso" }
+      
     ],
     "2017": [
-      { "data": "Dicembre 2015", "titolo": "Sentenza Cassazione", "descrizione": "Condanna definitiva a 16 anni per Alberto Stasi." },
+      { "data": "Dicembre 2015", "titolo": "Sentenza Cassazione", "descrizione": "Condanna definitiva a 16 anni per Stasi Alberto." },
       { "data": "Inizio 2017", "titolo": "Inchiesta Bis", "descrizione": "Valutazione di profili genetici alternativi e respingimento dei ricorsi." }
     ],
     "2025": [
-      { "data": "27 Febbraio 2025", "titolo": "Avviso di Garanzia", "descrizione": "Andrea Sempio nuovamente indagato per l'omicidio di Chiara Poggi in concorso con Alberto Stasi o ignoti" },
+      { "data": "27 Febbraio 2025", "titolo": "Avviso di Garanzia", "descrizione": "Sempio Andrea nuovamente indagato per l'omicidio di Poggi Chiara in concorso con Stasi Alberto o ignoti" },
       { "data": "14 Maggio 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita. Oltre loro vengono perquisiti i dispositivi informatici degli amici dell'indagato, Roberto Freddi e Mattia Capra." },
       { "data": "14 Maggio 2025", "titolo": "Dragaggio", "descrizione": "Il canale di Tromello viene dragato, adiacente alla ex-casa della nonna paterna delle gemelle Cappa. Il provvedimento è stato preso dopo una testimonianza de relato di Bruscagin riguardo un possibile borsone buttato nel canale il 13 Agosto 2007 dove avrebbe coinvolto le gemelle Cappa il giorno dell'omicidio"},
       { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" },
       { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "Mario Venditti viene perquisito dalla procura di Brescia come conseguenza del bigliettino e inserito nel registro degli indagati come corrotto per l'indagine archiviata a carico di Andrea Sempio del 2016-2017"},
-      { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Denise Albani ha cristalizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" }
+      { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Albani Denise ha cristalizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" }
     ]
   }
 }
