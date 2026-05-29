@@ -170,7 +170,7 @@ function caricaEpoca(anno) {
                     'text-valign': 'bottom',
                     'text-halign': 'center',
                     'text-margin-y': 8,
-                    'color': '#ffffff',
+                    'color': '#f1ef75',
                     'text-opacity': 0.7,
                     'font-family': 'Courier New, monospace',
                     'font-size': '9px',
