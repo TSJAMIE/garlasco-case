@@ -1,179 +1,197 @@
 let cyInstance = null;
 let databaseNodi = null;
+let currentEpoch = null;
+let charPositions = {};
 
-// Inizializzazione dell'applicazione al caricamento del DOM
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // ==========================================
-    // GESTIONE DISCLAIMER INIZIALE
-    // ==========================================
     const disclaimerBtn = document.getElementById('disclaimer-confirm-btn');
     if (disclaimerBtn) {
         disclaimerBtn.addEventListener('click', () => {
-            const disclaimer = document.getElementById('disclaimer-overlay');
-            if (disclaimer) {
-                disclaimer.style.opacity = '0';
-                disclaimer.style.visibility = 'hidden';
-                
-                // Rimozoine dall'albero di rendering al termine della transizione CSS
-                setTimeout(() => {
-                    disclaimer.style.display = 'none';
-                }, 600);
-            }
+            const overlay = document.getElementById('disclaimer-overlay');
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+            setTimeout(() => { overlay.style.display = 'none'; }, 600);
         });
     }
 
-    // ==========================================
-    // CARICAMENTO COSTRUTTI E DATI
-    // ==========================================
     fetch('data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Impossibile leggere il file data.json");
-            }
-            return response.json();
+        .then(r => {
+            if (!r.ok) throw new Error('Impossibile caricare data.json');
+            return r.json();
         })
         .then(data => {
             databaseNodi = data;
-            document.getElementById('node-2007').addEventListener('click', () => avviaTransizione('2007'));
-            document.getElementById('node-2017').addEventListener('click', () => avviaTransizione('2017'));
-            document.getElementById('node-2025').addEventListener('click', () => avviaTransizione('2025'));
-        })
-        .catch(error => console.error("Errore critico di caricamento dati:", error));
+            loadPositions();
 
-    // Eventi dell'interfaccia utente
+            const startCard = document.getElementById('start-investigation');
+            if (startCard) {
+                startCard.addEventListener('click', () => avviaTransizione('2007'));
+            }
+
+            document.querySelectorAll('.dial-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    switchEpoch(item.dataset.year);
+                });
+            });
+        })
+        .catch(err => console.error('Errore caricamento dati:', err));
+
     document.getElementById('change-epoch-btn').addEventListener('click', resetApertura);
     document.getElementById('close-dossier-btn').addEventListener('click', chiudiDossier);
     document.getElementById('open-timeline-btn').addEventListener('click', apriTimeline);
     document.getElementById('close-timeline-btn').addEventListener('click', chiudiTimeline);
     document.getElementById('audio-toggle-btn').addEventListener('click', toggleAudio);
+
+    const exportBtn = document.getElementById('export-positions-btn');
+    if (exportBtn) exportBtn.addEventListener('click', esportaPosizioni);
 });
 
-// ==========================================
-// SFONDO ANIMATO (PARTICELLE)
-// ==========================================
-const canvas = document.getElementById('particle-canvas');
-if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+// ===== POSIZIONI =====
+function loadPositions() {
+    const saved = localStorage.getItem('garlasco_positions');
+    if (saved) {
+        try {
+            charPositions = JSON.parse(saved);
+            console.log('Posizioni caricate da localStorage:', Object.keys(charPositions).length, 'nodi');
+            return;
+        } catch(e) { console.warn('localStorage corrotto.'); }
     }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    class Particle {
-        // Logica della classe Particle rimasta invariata
+    if (databaseNodi && databaseNodi.positions) {
+        charPositions = JSON.parse(JSON.stringify(databaseNodi.positions));
+        console.log('Posizioni caricate da data.json');
+        return;
     }
-
-    function initParticles() {
-        for (let i = 0; i < 40; i++) { particles.push(new Particle()); }
+    if (databaseNodi && databaseNodi.characters) {
+        databaseNodi.characters.forEach(c => {
+            if (!c.timeline) return;
+            for (const anno of Object.keys(c.timeline)) {
+                const p = c.timeline[anno].position;
+                if (p) { charPositions[c.id] = { x: p.x, y: p.y }; break; }
+            }
+        });
+        console.log('Posizioni iniziali dai timeline.');
     }
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(animateParticles);
-    }
-    initParticles();
-    animateParticles();
 }
 
-// ==========================================
-// LOGICA DEI DIALOGHI E DEL GRAFO
-// ==========================================
+function savePositions() {
+    localStorage.setItem('garlasco_positions', JSON.stringify(charPositions));
+}
 
+function esportaPosizioni() {
+    const json = JSON.stringify(charPositions, null, 2);
+    console.log('===== COPIA QUESTO IN data.json SOTTO LA CHIAVE "positions" =====');
+    console.log(json);
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(json)
+            .then(() => console.log('✅ Copiato negli appunti!'))
+            .catch(() => console.log('⚠️ Copia manuale dalla console.'));
+    }
+    alert('Posizioni esportate! Controlla la console (F12) — già copiate negli appunti.');
+}
+
+// ===== TRANSIZIONE =====
 function avviaTransizione(anno) {
     const musica = document.getElementById('bg-music');
     if (musica) {
-        musica.volume = 0.4; 
-        musica.play().catch(error => {
-            console.log("Riproduzione automatica limitata o file audio mancante:", error);
-        });
+        musica.volume = 0.4;
+        musica.play().catch(e => console.warn('Audio non riprodotto:', e));
     }
-
     const overlay = document.getElementById('portal-overlay');
-    overlay.style.transform = 'scale(1.2)';
+    overlay.style.transform = 'scale(1.15)';
     overlay.style.opacity = '0';
-    
+    overlay.style.pointerEvents = 'none';
+
     setTimeout(() => {
         overlay.style.display = 'none';
+        const main = document.getElementById('main-interface');
+        main.style.display = 'block';
         document.getElementById('open-timeline-btn').style.display = 'flex';
         document.getElementById('audio-toggle-btn').style.display = 'block';
-        
         caricaEpoca(anno);
-    }, 800);
+    }, 700);
 }
 
-function caricaEpoca(anno) {
-    if (!databaseNodi || !databaseNodi.characters) return;
-    
-    document.getElementById('active-year-label').innerText = anno;
+// ===== COSTRUZIONE ELEMENTI =====
+function buildElements(anno) {
+    if (!databaseNodi || !databaseNodi.characters) return [];
 
     const nodiFiltrati = databaseNodi.characters
         .filter(char => char.timeline && char.timeline[anno])
         .map(char => {
-            const datiAnno = char.timeline[anno];
-            
+            const dati = char.timeline[anno];
             return {
                 group: 'nodes',
                 data: {
                     id: char.id,
                     label: char.label,
-                    type: datiAnno.type,
-                    time: datiAnno.time,
-                    eta: datiAnno.eta || 'N/A',       
-                    status: datiAnno.status || 'N/A', 
-                    luogo: datiAnno.luogo || 'N/A',   
-                    info: datiAnno.info,
-                    foto_mappa: datiAnno.foto_mappa || '', 
-                    nodeType: datiAnno.nodeType || 'standard'
+                    type: dati.type || 'N/A',
+                    time: dati.time || 'N/A',
+                    eta: dati.eta || 'N/A',
+                    status: dati.status || 'N/A',
+                    luogo: dati.luogo || 'N/A',
+                    info: dati.info || '',
+                    foto_mappa: dati.foto_mappa || '',
+                    nodeType: dati.nodeType || 'standard'
                 },
-                position: datiAnno.position ? { x: datiAnno.position.x, y: datiAnno.position.y } : { x: 100, y: 100 }
+                position: charPositions[char.id]
+                    ? { x: charPositions[char.id].x, y: charPositions[char.id].y }
+                    : (dati.position ? { x: dati.position.x, y: dati.position.y } : { x: 0, y: 0 })
             };
         });
 
-    const archiAnno = (databaseNodi.links && databaseNodi.links[anno]) ? databaseNodi.links[anno] : [];
-    
-    const archiConCurva = archiAnno.map(edge => {
-        if (!edge.data) edge.data = {};
-        edge.data.curvaDinamica = Math.floor(Math.random() * 40) + 20;
-        return edge;
-    });
+    const archi = (databaseNodi.links && databaseNodi.links[anno]) ? databaseNodi.links[anno] : [];
+    const archiConCurva = archi.map(e => ({
+        group: 'edges',
+        data: {
+            ...e.data,
+            id: `${anno}-${e.data.id}`,
+            curvaDinamica: Math.floor(Math.random() * 40) + 20
+        }
+    }));
 
-    const elementiGrafo = [...nodiFiltrati, ...archiConCurva];
+    return [...nodiFiltrati, ...archiConCurva];
+}
+
+// ===== CARICAMENTO INIZIALE =====
+function caricaEpoca(anno) {
+    if (!databaseNodi || !databaseNodi.characters) return;
+    currentEpoch = anno;
+    document.getElementById('active-year-label').innerText = anno;
+    updateDialActive(anno);
+
+    const elementi = buildElements(anno);
 
     cyInstance = cytoscape({
         container: document.getElementById('cy'),
-        elements: elementiGrafo,
+        elements: elementi,
         zoomingEnabled: true,
         panningEnabled: true,
         boxSelectionEnabled: false,
         autounselectify: true,
-        autoungrabify: true, 
+        autoungrabify: false,
         minZoom: 0.3,
         maxZoom: 2.0,
-
         style: [
             {
                 selector: 'node[nodeType="standard"]',
                 style: {
-                    'shape': 'rectangle',
-                    'width': '90px',
-                    'height': '120px',
-                    'background-color': '#222',
-                    'background-opacity': 0.5,
-                    'border-width': 1,
+                    'shape': 'round-rectangle',
+                    'width': '95px',
+                    'height': '118px',
+                    'border-radius': '8px',
+                    'background-color': '#1a1a1a',
+                    'background-opacity': 0.9,
+                    'border-width': 2,
                     'border-color': '#444',
                     'label': 'data(label)',
                     'text-valign': 'bottom',
                     'text-halign': 'center',
-                    'text-margin-y': 8,
+                    'text-margin-y': 10,
                     'color': '#f1ef75',
-                    'text-opacity': 0.7,
-                    'font-family': 'Courier New, monospace',
+                    'text-opacity': 0.9,
+                    'font-family': 'Inter, sans-serif',
                     'font-size': '9px',
+                    'font-weight': 600,
                     'text-transform': 'uppercase',
                     'text-wrap': 'wrap',
                     'text-max-width': '100px',
@@ -185,52 +203,53 @@ function caricaEpoca(anno) {
                 style: {
                     'background-image': 'data(foto_mappa)',
                     'background-fit': 'cover',
+                    'background-position-x': '50%',
+                    'background-position-y': '20%',
                     'background-opacity': 1,
-                    'border-width': 0
+                    'background-color': '#0a0a0a',
+                    'border-width': 2,
+                    'border-color': 'var(--glow-gold)',
+                    'border-radius': '8px'
                 }
             },
             {
                 selector: 'node[nodeType="point"]',
                 style: {
                     'shape': 'ellipse',
-                    'background-color': 'rgba(255, 255, 255, 0.4)',
-                    'width': '6px',
-                    'height': '6px',
+                    'background-color': 'rgba(255,255,255,0.3)',
+                    'width': '8px', 'height': '8px',
                     'label': 'data(label)',
-                    'color': '#c5ac1f',
-                    'text-opacity': 0.4,
-                    'font-family': 'Courier New, monospace',
+                    'color': '#c5ac1f', 'text-opacity': 0.5,
+                    'font-family': 'Inter, sans-serif',
                     'font-size': '8px',
-                    'text-valign': 'top',
-                    'text-margin-y': -6
+                    'text-valign': 'top', 'text-margin-y': -8
                 }
             },
             {
                 selector: 'edge',
                 style: {
-                    'width': 2.5,
+                    'width': 2,
                     'curve-style': 'bezier',
                     'control-point-step-size': 'data(curvaDinamica)',
-                    'target-arrow-shape': 'none', 
+                    'target-arrow-shape': 'none',
                     'line-color': '#d3c82a',
-                    'line-opacity': 0.8,
+                    'line-opacity': 0.6,
                     'line-style': 'dashed',
                     'line-cap': 'round',
-                    'line-dash-pattern': [1, 15],
+                    'line-dash-pattern': [2, 12],
                     'line-dash-offset': 0
                 }
             },
-            { selector: 'edge[edgeType="connessione"]', style: { 'line-color': '#ffffff', 'line-opacity': 0.7 } },
-            { selector: 'edge[edgeType="evidenza"]', style: { 'line-color': '#d4af37', 'line-opacity': 0.9 } },
-            { selector: 'edge[edgeType="cronologia"]', style: { 'line-color': '#888888', 'line-opacity': 0.5 } }
+            {
+                selector: 'edge[edgeType="connessione"]',
+                style: { 'line-color': '#ffffff', 'line-opacity': 0.5 }
+            },
+            {
+                selector: 'edge[edgeType="evidenza"]',
+                style: { 'line-color': '#d4af37', 'line-opacity': 0.8, 'line-dash-pattern': [0] }
+            }
         ],
-
-        layout: {
-            name: 'preset', 
-            padding: 40,
-            animate: true,
-            animationDuration: 500
-        }
+        layout: { name: 'preset', padding: 60, animate: false }
     });
 
     cyInstance.ready(() => {
@@ -239,152 +258,212 @@ function caricaEpoca(anno) {
 
         let offset = 0;
         let tempo = 0;
-
         function animateEdges() {
             if (!cyInstance || cyInstance.destroyed()) return;
-            
-            tempo += 0.03; 
-            const passoDinamico = -0.5 + (Math.sin(tempo) * 0.2);
-            offset += passoDinamico; 
-
+            tempo += 0.02;
+            offset += -0.3 + Math.sin(tempo) * 0.1;
             cyInstance.edges().style('line-dash-offset', offset);
             requestAnimationFrame(animateEdges);
         }
         animateEdges();
     });
 
+    cyInstance.on('free', 'node', (evt) => {
+        const node = evt.target;
+        const id = node.id();
+        const pos = node.position();
+        charPositions[id] = { x: Math.round(pos.x), y: Math.round(pos.y) };
+        savePositions();
+        console.log(`📍 ${id} → { x: ${Math.round(pos.x)}, y: ${Math.round(pos.y)} }`);
+    });
+
     cyInstance.on('tap', 'node', (evt) => {
-        const nodeData = evt.target.data();
-        const panel = document.getElementById('dossier-panel');
-        
-        panel.style.display = 'block';
-        document.getElementById('dossier-name').innerText = nodeData.label;
-        document.getElementById('meta-type').innerText = nodeData.type || 'N/A';
-        document.getElementById('meta-type').style.color = '#ffffff';
-        document.getElementById('meta-time').innerText = nodeData.time || 'N/A';
-        document.getElementById('meta-eta').innerText = nodeData.eta || 'N/A';
-        document.getElementById('meta-status').innerText = nodeData.status || 'N/A';
-        document.getElementById('meta-luogo').innerText = nodeData.luogo || 'N/A';
-        document.getElementById('dossier-desc').innerText = nodeData.info || '';
-
-        const charRecord = databaseNodi.characters.find(char => char.id === nodeData.id);
-        const annoAttivo = document.getElementById('active-year-label').innerText;
-        
-        let sfondoDossier = null;
-        if (charRecord && charRecord.timeline && charRecord.timeline[annoAttivo]) {
-            sfondoDossier = charRecord.timeline[annoAttivo].sfondo_dossier;
-        }
-        
-        if (sfondoDossier) {
-            panel.style.setProperty('--bg-immagine', `url('${sfondoDossier}')`);
-        } else {
-            panel.style.removeProperty('--bg-immagine');
-        }
-
-        const dossierEventsContainer = document.getElementById('dossier-events-container');
-        dossierEventsContainer.innerHTML = '';
-        
-        if (charRecord && charRecord.timeline && charRecord.timeline[annoAttivo]) {
-            const datiAnnoSelezionato = charRecord.timeline[annoAttivo];
-            
-            if (datiAnnoSelezionato.events && datiAnnoSelezionato.events.length > 0) {
-                datiAnnoSelezionato.events.forEach(ev => {
-                    const evDiv = document.createElement('div');
-                    evDiv.style.marginBottom = '15px';
-                    evDiv.style.borderLeft = '2px solid #d4af37';
-                    evDiv.style.paddingLeft = '10px';
-                    evDiv.innerHTML = `
-                        <div style="font-size:10px; color:#d4af37;">${ev.data}</div>
-                        <div style="font-size:12px; color:#fff; margin:2px 0;">${ev.titolo}</div>
-                        <div style="font-size:11px; color:#aaa;">${ev.descrizione}</div>
-                    `;
-                    dossierEventsContainer.appendChild(evDiv);
-                });
-            } else {
-                dossierEventsContainer.innerHTML = '<div style="font-size:11px; color:#555;">Nessun evento specifico collegato a questo crono-record.</div>';
-            }
-        }
+        apriDossier(evt.target.data('id'));
     });
 
     cyInstance.on('tap', (evt) => {
-        if(evt.target === cyInstance){ chiudiDossier(); }
+        if (evt.target === cyInstance) chiudiDossier();
     });
 
     popolaTimeline(anno);
 }
 
-function popolaTimeline(anno) {
-    const container = document.getElementById('timeline-events-container');
-    container.innerHTML = '';
-    
-    if (!databaseNodi || !databaseNodi.events || !databaseNodi.events[anno]) {
-        container.innerHTML = '<div class="metadata-line">Nessun evento registrato per questa epoca.</div>';
-        return;
+// ===== CAMBIO EPOCA =====
+function switchEpoch(anno) {
+    if (!cyInstance || cyInstance.destroyed()) return;
+    if (anno === currentEpoch) return;
+    if (!databaseNodi) return;
+
+    const cy = cyInstance;
+    const newElements = buildElements(anno);
+    const newNodes = newElements.filter(el => el.group === 'nodes');
+    const newEdges = newElements.filter(el => el.group === 'edges');
+
+    const newNodeIds = new Set(newNodes.map(n => n.data.id));
+    const newEdgeIds = new Set(newEdges.map(e => e.data.id));
+
+    cy.edges().forEach(e => {
+        if (!newEdgeIds.has(e.id())) {
+            e.animate({ style: { opacity: 0 } },
+                { duration: 300, complete: () => { if (e.cy()) e.remove(); } });
+        }
+    });
+
+    cy.nodes().forEach(n => {
+        if (!newNodeIds.has(n.id())) {
+            n.animate({ style: { opacity: 0 } },
+                { duration: 300, complete: () => { if (n.cy()) n.remove(); } });
+        }
+    });
+
+    const currentNodeIds = new Set(cy.nodes().map(n => n.id()));
+    const nodesToAdd = newNodes.filter(n => !currentNodeIds.has(n.data.id));
+
+    if (nodesToAdd.length > 0) {
+        const added = cy.add(nodesToAdd);
+        added.style('opacity', 0);
+        added.animate({ style: { opacity: 1 } }, { duration: 550 });
     }
 
-    databaseNodi.events[anno].forEach(ev => {
-        const evDiv = document.createElement('div');
-        evDiv.style.marginBottom = '15px';
-        evDiv.style.borderLeft = '2px solid #d4af37';
-        evDiv.style.paddingLeft = '10px';
-        evDiv.innerHTML = `
-            <div style="font-size:10px; color:#d4af37;">${ev.data}</div>
-            <div style="font-size:12px; color:#fff; margin:2px 0;">${ev.titolo}</div>
-            <div style="font-size:11px; color:#aaa;">${ev.descrizione}</div>
-        `;
-        container.appendChild(evDiv);
+    newNodes.forEach(n => {
+        if (currentNodeIds.has(n.data.id)) {
+            const node = cy.getElementById(n.data.id);
+            if (node.length > 0) node.data(n.data);
+        }
+    });
+
+    setTimeout(() => {
+        if (!cyInstance || cyInstance.destroyed()) return;
+        const currentEdgeIds = new Set(cyInstance.edges().map(e => e.id()));
+        const edgesToAdd = newEdges.filter(e => !currentEdgeIds.has(e.data.id));
+        if (edgesToAdd.length > 0) {
+            const added = cyInstance.add(edgesToAdd);
+            added.style('opacity', 0);
+            added.animate({ style: { opacity: 1 } }, { duration: 550 });
+        }
+    }, 320);
+
+    currentEpoch = anno;
+    document.getElementById('active-year-label').innerText = anno;
+    updateDialActive(anno);
+    popolaTimeline(anno);
+    chiudiDossier();
+}
+
+// ===== ROTELLA =====
+function updateDialActive(anno) {
+    document.querySelectorAll('.dial-item').forEach(item => {
+        item.classList.toggle('active', item.dataset.year === anno);
     });
 }
 
-function toggleAudio() {
-    const musica = document.getElementById('bg-music');
-    const btn = document.getElementById('audio-toggle-btn');
-    if (!musica) return;
+// ===== TIMELINE =====
+function popolaTimeline(anno) {
+    const container = document.getElementById('timeline-events-container');
+    container.innerHTML = '';
+    if (!databaseNodi || !databaseNodi.events || !databaseNodi.events[anno]) {
+        container.innerHTML = '<div class="event-item" style="color:#666;font-size:12px;">Nessun evento registrato per questa epoca.</div>';
+        return;
+    }
+    databaseNodi.events[anno].forEach(ev => {
+        const div = document.createElement('div');
+        div.className = 'event-item';
+        div.innerHTML = `
+            <div class="event-date">${ev.data}</div>
+            <div class="event-title">${ev.titolo}</div>
+            <div class="event-desc">${ev.descrizione}</div>
+        `;
+        container.appendChild(div);
+    });
+}
 
-    if (musica.muted) {
-        musica.muted = false;
-        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-        btn.title = "Disattiva Audio";
+// ===== DOSSIER (senza foto) =====
+function apriDossier(nodeId) {
+    const panel = document.getElementById('dossier-panel');
+    panel.classList.add('open');
+    panel.style.display = 'block';
+
+    const charRecord = databaseNodi.characters.find(c => c.id === nodeId);
+    if (!charRecord) return;
+
+    const anno = currentEpoch;
+    const dati = charRecord.timeline && charRecord.timeline[anno] ? charRecord.timeline[anno] : {};
+
+    document.getElementById('dossier-name').innerText = charRecord.label || 'Sconosciuto';
+
+    document.getElementById('meta-type').innerText = dati.type || 'N/A';
+    document.getElementById('meta-time').innerText = dati.time || 'N/A';
+    document.getElementById('meta-eta').innerText = dati.eta || 'N/A';
+    document.getElementById('meta-status').innerText = dati.status || 'N/A';
+    document.getElementById('meta-luogo').innerText = dati.luogo || 'N/A';
+    document.getElementById('dossier-desc').innerText = dati.info || 'Nessuna informazione disponibile.';
+
+    const container = document.getElementById('dossier-events-container');
+    container.innerHTML = '';
+    if (dati.events && dati.events.length > 0) {
+        dati.events.forEach(ev => {
+            const div = document.createElement('div');
+            div.className = 'event-item';
+            div.innerHTML = `
+                <div class="event-date">${ev.data}</div>
+                <div class="event-title">${ev.titolo}</div>
+                <div class="event-desc">${ev.descrizione}</div>
+            `;
+            container.appendChild(div);
+        });
     } else {
-        musica.muted = true;
-        btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-        btn.title = "Attiva Audio";
+        container.innerHTML = '<div style="font-size:12px;color:#555;">Nessun evento specifico per questo soggetto.</div>';
     }
 }
 
+// ===== UI =====
+function toggleAudio() {
+    const audio = document.getElementById('bg-music');
+    const btn = document.getElementById('audio-toggle-btn');
+    if (!audio) return;
+    audio.muted = !audio.muted;
+    btn.innerHTML = audio.muted ? '<i class="fa-solid fa-volume-xmark"></i>' : '<i class="fa-solid fa-volume-high"></i>';
+    btn.title = audio.muted ? 'Attiva Audio' : 'Disattiva Audio';
+}
+
 function apriTimeline() {
-    document.getElementById('timeline-panel').style.display = 'block';
+    const panel = document.getElementById('timeline-panel');
+    panel.style.display = 'block';
+    setTimeout(() => panel.classList.add('open'), 10);
 }
 
 function chiudiTimeline() {
-    document.getElementById('timeline-panel').style.display = 'none';
+    const panel = document.getElementById('timeline-panel');
+    panel.classList.remove('open');
+    setTimeout(() => { panel.style.display = 'none'; }, 400);
 }
 
 function chiudiDossier() {
-    document.getElementById('dossier-panel').style.display = 'none';
+    const panel = document.getElementById('dossier-panel');
+    panel.classList.remove('open');
+    setTimeout(() => { panel.style.display = 'none'; }, 400);
 }
 
 function resetApertura() {
     chiudiDossier();
     chiudiTimeline();
-    if(cyInstance) { cyInstance.destroy(); }
-    
-    const musica = document.getElementById('bg-music');
-    if (musica) {
-        musica.pause();
-        musica.currentTime = 0;
-        musica.muted = false;
-    }
+    if (cyInstance) { cyInstance.destroy(); cyInstance = null; }
+    currentEpoch = null;
 
-    const audioBtn = document.getElementById('audio-toggle-btn');
-    audioBtn.style.display = 'none';
-    audioBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-
+    const audio = document.getElementById('bg-music');
+    if (audio) { audio.pause(); audio.currentTime = 0; audio.muted = false; }
+    const btn = document.getElementById('audio-toggle-btn');
+    btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    btn.title = 'Disattiva Audio';
+    btn.style.display = 'none';
     document.getElementById('open-timeline-btn').style.display = 'none';
+    document.getElementById('main-interface').style.display = 'none';
+
     const overlay = document.getElementById('portal-overlay');
     overlay.style.display = 'flex';
-    setTimeout(() => { 
-        overlay.style.transform = 'scale(1)';
-        overlay.style.opacity = '1'; 
-    }, 50);
+    overlay.style.opacity = '1';
+    overlay.style.transform = 'scale(1)';
+    overlay.style.pointerEvents = 'auto';
+
+    document.querySelectorAll('.dial-item').forEach(el => el.classList.remove('active'));
 }
