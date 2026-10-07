@@ -31,8 +31,8 @@
     "giarda": { "x": 427, "y": -761 },
     "bocellari": { "x": 647, "y": -761 },
     "tizzoni": { "x": 194, "y": -764 },
-    "civardi": { "x": 544, "y": -1653 },
-    "napoleone": { "x": 344, "y": -1651 },
+    "civardi": { "x": 493, "y": -1050 },
+    "napoleone": { "x": 493, "y": -1050 },
     "lovati": { "x": 1049, "y": -206 },
     "grassi": { "x": 1050, "y": 12 },
     "soldani": { "x": 1087, "y": -428 },
@@ -638,7 +638,7 @@
           "time": "2007",
           "status": "In vita",
           "luogo": "Vigevano (PV)",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2007/rosamuscio2007.png",
           "info": "PM della Procura di Vigevano, titolare delle prime indagini sull'omicidio di Chiara Poggi.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -794,7 +794,7 @@
           "time": "2007",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2007/gianluigitizzoni2007.jpg",
           "info": "Legale della famiglia Poggi nelle prime fasi del processo.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -847,7 +847,7 @@
       "label": "FABIO NAPOLEONE",
       "timeline": {
         "2025": {
-          "position": { "x": 344, "y": -1651 },
+          "position": { "x": 480, "y": -1050 },
           "type": "Magistrato",
           "time": "2025",
           "status": "In vita",
@@ -863,7 +863,7 @@
       "label": "STEFANO CIVARDI",
       "timeline": {
         "2025": {
-          "position": { "x": 544, "y": -1653 },
+          "position": { "x": 350, "y": -1050 },
           "type": "Procuratore Aggiunto di Pavia",
           "time": "2025",
           "status": "In vita",
@@ -880,12 +880,12 @@
       "timeline": {
         "2017": {
           "position": { "x": 1049, "y": -206 },
-          "type": "Figura collegata al fascicolo",
+          "type": "Avvocato di Andrea Sempio",
           "time": "2016-2017",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
-          "info": "Figura collegata ad Andrea Sempio nel fascicolo 2016-2017.",
+          "foto_mappa": "photos/2025/massimolovati2025.jpg",
+          "info": "Assiste Andrea Sempio nel fascicolo 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         },
         "2025": {
@@ -894,8 +894,8 @@
           "time": "2025",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
-          "info": "Figura collegata ad Andrea Sempio nel nuovo fascicolo.",
+          "foto_mappa": "photos/2025/massimolovati2025.jpg",
+          "info": "Assiste Andrea Sempio nel Garlasco bis.",
           "sfondo_dossier": "background/fog.gif"
         }
       }
@@ -906,12 +906,12 @@
       "timeline": {
         "2017": {
           "position": { "x": 1050, "y": 12 },
-          "type": "Figura collegata al fascicolo",
+          "type": "Avvocato di Andrea Sempio",
           "time": "2016-2017",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
-          "info": "Figura collegata ad Andrea Sempio nel fascicolo 2016-2017.",
+          "foto_mappa": "banner/whois.webp",
+          "info": "Assiste Andrea Sempio nel fascicolo 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         }
       }
@@ -922,12 +922,12 @@
       "timeline": {
         "2017": {
           "position": { "x": 1087, "y": -428 },
-          "type": "Figura collegata al fascicolo",
+          "type": "Avvocato di Andrea Sempio",
           "time": "2016-2017",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
-          "info": "Figura collegata ad Andrea Sempio, Silvio Sapone e Giuseppe Sempio nel fascicolo 2016-2017.",
+          "foto_mappa": "photos/2017/federicosoldani2017.jpg",
+          "info": "Assiste Andrea Sempio nel fascicolo 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         }
       }
@@ -942,7 +942,7 @@
           "time": "2025",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2025/liboriocataliotti2025.jpg",
           "info": "Figura collegata ad Andrea Sempio nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -958,7 +958,7 @@
           "time": "2025",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2025/angelataccia2025.jpg",
           "info": "Figura collegata ad Andrea Sempio nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }

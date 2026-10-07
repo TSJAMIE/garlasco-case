@@ -47,20 +47,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== POSIZIONI =====
+// Nota: la priorità è data da `position` dentro la scheda del personaggio (timeline[anno].position).
+// charPositions serve solo come FALLBACK per i personaggi che non hanno una position nella timeline.
 function loadPositions() {
+    // Fallback 1: blocco "positions" globale in data.json
+    if (databaseNodi && databaseNodi.positions) {
+        charPositions = JSON.parse(JSON.stringify(databaseNodi.positions));
+        console.log('📦 Fallback posizioni da data.json (blocco positions)');
+        return;
+    }
+    // Fallback 2: localStorage (drag salvati in passato)
     const saved = localStorage.getItem('garlasco_positions');
     if (saved) {
         try {
             charPositions = JSON.parse(saved);
-            console.log('Posizioni caricate da localStorage:', Object.keys(charPositions).length, 'nodi');
+            console.log('💾 Fallback posizioni da localStorage');
             return;
         } catch(e) { console.warn('localStorage corrotto.'); }
     }
-    if (databaseNodi && databaseNodi.positions) {
-        charPositions = JSON.parse(JSON.stringify(databaseNodi.positions));
-        console.log('Posizioni caricate da data.json');
-        return;
-    }
+    // Fallback 3: primo timeline con position disponibile
     if (databaseNodi && databaseNodi.characters) {
         databaseNodi.characters.forEach(c => {
             if (!c.timeline) return;
@@ -69,7 +74,7 @@ function loadPositions() {
                 if (p) { charPositions[c.id] = { x: p.x, y: p.y }; break; }
             }
         });
-        console.log('Posizioni iniziali dai timeline.');
+        console.log('📋 Fallback posizioni dai timeline.');
     }
 }
 
@@ -119,6 +124,19 @@ function buildElements(anno) {
         .filter(char => char.timeline && char.timeline[anno])
         .map(char => {
             const dati = char.timeline[anno];
+
+            // PRIORITÀ: 1) position nella scheda del personaggio (per quell'anno)
+            //           2) charPositions (fallback da data.json.positions o localStorage)
+            //           3) 0,0
+            let posizione;
+            if (dati.position && typeof dati.position.x === 'number' && typeof dati.position.y === 'number') {
+                posizione = { x: dati.position.x, y: dati.position.y };
+            } else if (charPositions[char.id]) {
+                posizione = { x: charPositions[char.id].x, y: charPositions[char.id].y };
+            } else {
+                posizione = { x: 0, y: 0 };
+            }
+
             return {
                 group: 'nodes',
                 data: {
@@ -133,9 +151,7 @@ function buildElements(anno) {
                     foto_mappa: dati.foto_mappa || '',
                     nodeType: dati.nodeType || 'standard'
                 },
-                position: charPositions[char.id]
-                    ? { x: charPositions[char.id].x, y: charPositions[char.id].y }
-                    : (dati.position ? { x: dati.position.x, y: dati.position.y } : { x: 0, y: 0 })
+                position: posizione
             };
         });
 
@@ -325,10 +341,16 @@ function switchEpoch(anno) {
         added.animate({ style: { opacity: 1 } }, { duration: 550 });
     }
 
+    // Aggiorna anche la POSIZIONE dei nodi già presenti (non solo i data)
     newNodes.forEach(n => {
         if (currentNodeIds.has(n.data.id)) {
             const node = cy.getElementById(n.data.id);
-            if (node.length > 0) node.data(n.data);
+            if (node.length > 0) {
+                node.data(n.data);
+                if (n.position) {
+                    node.position({ x: n.position.x, y: n.position.y });
+                }
+            }
         }
     });
 
