@@ -1,4 +1,44 @@
 {
+  "positions": {
+    "chiara": { "x": 190, "y": -454 },
+    "alberto": { "x": 429, "y": -452 },
+    "rita": { "x": -193, "y": -460 },
+    "giuseppe": { "x": -200, "y": -200 },
+    "marco": { "x": 596, "y": -202 },
+    "andrea": { "x": 824, "y": -206 },
+    "alessandro": { "x": 594, "y": -29 },
+    "f.biasibetti": { "x": -200, "y": -7 },
+    "daniela": { "x": 822, "y": -442 },
+    "giuseppes": { "x": 1345, "y": -427 },
+    "silvio": { "x": 1331, "y": -636 },
+    "giuseppesp": { "x": 1163, "y": -630 },
+    "mario": { "x": 1330, "y": -1292 },
+    "maurizio": { "x": 1131, "y": -960 },
+    "antonios": { "x": 826, "y": -1081 },
+    "whois": { "x": 987, "y": -623 },
+    "p.civile": { "x": -231, "y": -455 },
+    "stefania": { "x": -437, "y": -7 },
+    "paola": { "x": -652, "y": -2 },
+    "maria": { "x": -437, "y": -195 },
+    "ermanno": { "x": -649, "y": -193 },
+    "antonio": { "x": 433, "y": -765 },
+    "garofano": { "x": -35, "y": -1044 },
+    "marino": { "x": -38, "y": -1262 },
+    "mattei": { "x": -353, "y": -873 },
+    "portera": { "x": -351, "y": -1056 },
+    "pizzamiglio": { "x": -353, "y": -1261 },
+    "rosa": { "x": 493, "y": -1050 },
+    "giarda": { "x": 427, "y": -761 },
+    "bocellari": { "x": 647, "y": -761 },
+    "tizzoni": { "x": 194, "y": -764 },
+    "civardi": { "x": 544, "y": -1653 },
+    "napoleone": { "x": 344, "y": -1651 },
+    "lovati": { "x": 1049, "y": -206 },
+    "grassi": { "x": 1050, "y": 12 },
+    "soldani": { "x": 1087, "y": -428 },
+    "cataliotti": { "x": 1045, "y": -17 },
+    "taccia": { "x": 821, "y": -18 }
+  },
   "characters": [
     {
       "id": "chiara",
@@ -93,7 +133,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2007/ritapreda2007.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -111,7 +150,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2007/giuseppepoggi2007.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
           "sfondo_dossier": "background/fog.gif" 
         }
@@ -129,7 +167,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2007/marcopoggi2007.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia.",
           "sfondo_dossier": "background/fog.gif" 
         },
@@ -171,7 +208,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2007/andreasempio2007.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Amico di Marco Poggi",
           "sfondo_dossier": "background/fog.gif" 
         },
@@ -202,7 +238,7 @@
             { "data": "27 Febbraio 2025", "titolo": "Avviso di Garanzia", "descrizione": "Andrea Sempio nuovamente indagato per l'omicidio di Chiara Poggi in concorso con Alberto Stasi o ignoti" },
             { "data": "14 Maggio 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita. Oltre loro vengono perquisiti i dispositivi informatici degli amici dell'indagato, Roberto Freddi e Mattia Capra." },
             { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" },
-            { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Denise Albani ha cristallizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" },
+            { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Denise Albani ha cristalizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" },
             { "data": "06 Maggio 2026", "titolo": "Interrogatorio", "descrizione": "Andrea Sempio viene convocato dalla Procura di Pavia per essere interrogato accusato di aver ucciso Chiara Poggi. Si avvale della facoltà di non rispondere." }
           ] 
         }
@@ -220,7 +256,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2007/alessandrobiasibetti2007.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Al momento del delitto si trovava fuori Garlasco con il resto della famiglia con i Poggi",
           "sfondo_dossier": "background/fog.gif" 
         },
@@ -286,7 +321,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2025/giuseppesempio2025.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Padre di Andrea Sempio, coinvolto nel fascicolo a carico del figlio nel 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -319,7 +353,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2025/silviosapone2025.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Responsabile della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -346,7 +379,6 @@
           "status": "In vita",
           "luogo": "Garlasco (PV)",
           "foto_mappa": "photos/2025/giuseppespoto2025.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Membro della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -373,7 +405,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/2025/mariovenditti2025.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "PM titolare del fascicolo 2016-2017 a carico di Andrea Sempio, poi archiviato.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -403,7 +434,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/2025/mauriziopappalardo2025.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Attivo durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -434,7 +464,6 @@
           "status": "In Vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/2025/antonioscoppetta2025.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Attivo durante il fascicolo a carico di Andrea Sempio nel 2016-2017", 
           "sfondo_dossier": "background/fog.gif"
         },
@@ -466,7 +495,6 @@
           "status": "XXXXX",
           "luogo": "XXXXX",
           "foto_mappa": "banner/whois.webp",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura ignota collegata al fascicolo a carico di Andrea Sempio nel 2016-2017", 
           "sfondo_dossier": "background/fog.gif"
         },
@@ -611,7 +639,6 @@
           "status": "In vita",
           "luogo": "Vigevano (PV)",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "PM della Procura di Vigevano, titolare delle prime indagini sull'omicidio di Chiara Poggi.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -628,7 +655,6 @@
           "status": "In vita",
           "luogo": "Parma",
           "foto_mappa": "photos/2007/lucianogarofano2007.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Comandante del RIS di Parma. Coinvolto nelle prime analisi scientifiche del caso.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -639,7 +665,6 @@
           "status": "In vita",
           "luogo": "Parma",
           "foto_mappa": "photos/2017/lucianogarofano2017.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura di riferimento tecnico nella nuova inchiesta bis.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -650,7 +675,6 @@
           "status": "In vita",
           "luogo": "Parma",
           "foto_mappa": "photos/2025/lucianogarofano2025.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura di riferimento tecnico nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -667,7 +691,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Medico legale coinvolto nelle prime fasi delle indagini.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -678,7 +701,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Medico legale coinvolto nelle nuove indagini.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -695,7 +717,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Ufficiale dei Carabinieri coinvolto nelle indagini del 2007.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -706,7 +727,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Ufficiale dei Carabinieri nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -723,7 +743,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Medico legale coinvolto nelle prime fasi delle indagini.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -734,7 +753,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Medico legale coinvolto nelle nuove indagini.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -751,7 +769,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Luogotenente dei Carabinieri coinvolto nelle indagini del 2007.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -762,7 +779,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Luogotenente dei Carabinieri nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -779,7 +795,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Legale della famiglia Poggi nelle prime fasi del processo.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -790,7 +805,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Legale della famiglia Poggi nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -807,7 +821,6 @@
           "status": "In vita",
           "luogo": "Milano",
           "foto_mappa": "photos/2007/angelogiarda2007.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Avvocato difensore di Alberto Stasi.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -824,7 +837,6 @@
           "status": "In vita",
           "luogo": "Milano",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Avvocato coinvolto nel caso Garlasco.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -841,7 +853,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/2025/fabionapoleone2025.png",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura magistratuale coinvolta nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -858,7 +869,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/2025/stefanocivardi2025.png",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Procuratore Aggiunto di Pavia. Nell'ottobre 2025 chiede spiegazioni agli uffici dell'Arma di Pavia sulle fotografie mancanti del fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -875,7 +885,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura collegata ad Andrea Sempio nel fascicolo 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -886,7 +895,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura collegata ad Andrea Sempio nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -903,7 +911,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura collegata ad Andrea Sempio nel fascicolo 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -920,7 +927,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura collegata ad Andrea Sempio, Silvio Sapone e Giuseppe Sempio nel fascicolo 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -937,7 +943,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura collegata ad Andrea Sempio nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -954,7 +959,6 @@
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "foto_scheda": "photos/silhouette.jpg",
           "info": "Figura collegata ad Andrea Sempio nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
