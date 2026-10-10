@@ -25,7 +25,7 @@
     "garofano": { "x": -35, "y": -1044 },
     "marino": { "x": -38, "y": -1262 },
     "mattei": { "x": -353, "y": -873 },
-    "portera": { "x": -351, "y": -1056 },
+    "port": { "x": -351, "y": -1056 },
     "pizzamiglio": { "x": -353, "y": -1261 },
     "rosa": { "x": 493, "y": -1050 },
     "giarda": { "x": 427, "y": -761 },
@@ -105,6 +105,19 @@
             { "data": "20 Agosto 2007", "titolo": "Iscrizione nel registro", "descrizione": "Alberto Stasi viene formalmente iscritto tra gli indagati."},
             { "data": "Dicembre 2015", "titolo": "Sentenza Cassazione", "descrizione": "Condanna definitiva a 16 anni per Alberto Stasi." }
           ]
+        },
+        "2017": {
+          "position": { "x": 429, "y": -452 },
+          "type": "Carcerato",
+          "time": "2017",
+          "eta": "33 anni",
+          "status": "In Vita",
+          "luogo": "Bollate (MI)",
+          "foto_mappa": "photos/2017/albertostasi2017.webp",
+          "foto_scheda": "immagini/2007/alberto_scheda.jpg",
+          "info": "Detenuto presso il carcere Bollate",
+          "sfondo_dossier": "background/fog.gif",
+          "events": []
         },
         "2025": {
           "position": { "x": 429, "y": -452 },
@@ -249,7 +262,7 @@
       "label": "ALESSANDRO BIASIBETTI",
       "timeline": {
         "2007": {
-          "position": { "x": 594, "y": -29 },
+          "position": { "x": 594, "y": -7 },
           "type": "Amico del fratello della Vittima",
           "time": "Agosto 2007",
           "eta": "19 anni",
@@ -260,7 +273,7 @@
           "sfondo_dossier": "background/fog.gif"
         },
         "2025": {
-          "position": { "x": 594, "y": -29 },
+          "position": { "x": 594, "y": -7 },
           "type": "Amico del fratello della Vittima",
           "time": "Garlasco 3.0",
           "eta": "37 anni",
@@ -278,7 +291,7 @@
       "label": "FAMIGLIA BIASIBETTI",
       "timeline": {
         "2007": {
-          "position": { "x": -200, "y": -7 },
+          "position": { "x": 200, "y": -7 },
           "type": "Amici della Famiglia della Vittima",
           "time": "Agosto 2007",
           "status": "In vita",
@@ -320,7 +333,7 @@
           "time": "2016-2017",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/giuseppesempio2025.webp",
+          "foto_mappa": "photos/2017/giuseppesempio2017.jpg",
           "info": "Padre di Andrea Sempio, coinvolto nel fascicolo a carico del figlio nel 2016-2017.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -427,16 +440,6 @@
       "id": "maurizio",
       "label": "MAURIZIO PAPPALARDO",
       "timeline": {
-        "2017": {
-          "position": { "x": 1131, "y": -960 },
-          "type": "Luogotenente dei Carabinieri",
-          "time": "2016-2017",
-          "status": "In vita",
-          "luogo": "Pavia",
-          "foto_mappa": "photos/2025/mauriziopappalardo2025.webp",
-          "info": "Attivo durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
-          "sfondo_dossier": "background/fog.gif"
-        },
         "2025": {
           "position": { "x": 1131, "y": -960 },
           "type": "ex Luogotenente dei Carabinieri",
@@ -456,17 +459,6 @@
       "id": "antonios",
       "label": "ANTONIO SCOPPETTA",
       "timeline": {
-        "2017": {
-          "position": { "x": 826, "y": -1081 },
-          "type": "Carabiniere del nucleo Forestale",
-          "time": "2016-2017",
-          "eta": "XXXXX",
-          "status": "In Vita",
-          "luogo": "Pavia",
-          "foto_mappa": "photos/2025/antonioscoppetta2025.webp",
-          "info": "Attivo durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
-          "sfondo_dossier": "background/fog.gif"
-        },
         "2025": {
           "position": { "x": 826, "y": -1081 },
           "type": "ex Carabiniere del nucleo Forestale",
@@ -487,17 +479,6 @@
       "id": "whois",
       "label": "?????",
       "timeline": {
-        "2017": {
-          "position": { "x": 987, "y": -623 },
-          "type": "XXXXX",
-          "time": "2016-2017",
-          "eta": "XXXXX",
-          "status": "XXXXX",
-          "luogo": "XXXXX",
-          "foto_mappa": "banner/whois.webp",
-          "info": "Figura ignota collegata al fascicolo a carico di Andrea Sempio nel 2016-2017",
-          "sfondo_dossier": "background/fog.gif"
-        },
         "2025": {
           "position": { "x": 987, "y": -623 },
           "type": "XXXXX",
@@ -658,16 +639,6 @@
           "info": "Comandante del RIS di Parma. Coinvolto nelle prime analisi scientifiche del caso.",
           "sfondo_dossier": "background/fog.gif"
         },
-        "2017": {
-          "position": { "x": -35, "y": -1044 },
-          "type": "Consulente scientifico",
-          "time": "Inchiesta Bis",
-          "status": "In vita",
-          "luogo": "Parma",
-          "foto_mappa": "photos/2017/lucianogarofano2017.jpg",
-          "info": "Figura di riferimento tecnico nella nuova inchiesta bis.",
-          "sfondo_dossier": "background/fog.gif"
-        },
         "2025": {
           "position": { "x": -35, "y": -1044 },
           "type": "Consulente scientifico",
@@ -676,7 +647,11 @@
           "luogo": "Parma",
           "foto_mappa": "photos/2025/lucianogarofano2025.jpg",
           "info": "Figura di riferimento tecnico nel nuovo fascicolo.",
-          "sfondo_dossier": "background/fog.gif"
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "2 Ottobre 2025", "titolo": "SIT", "descrizione": "Il generale Garofano viene chiamato a SIT presso Brescia in quanto persona informata sui fatti. Il tema è l'archiviazione delle indagini a carico di Andrea Sempio nel fascicolo del 2016/2017. in quanto all'epoca consulente della difesa Sempio."},
+            { "data": "25 Settembre 2026", "titolo": "SIT", "descrizione": "Il generale Garofano viene chiamato a Sommarie Informazioni Testimoniali presso Pavia dal Procuratore Civardi in quanto persona informata sui fatti. Il tema sono le indagini del RIS di Parma del 2007."}
+          ]
         }
       }
     },
@@ -707,8 +682,8 @@
       }
     },
     {
-      "id": "portera",
-      "label": "TENENTE PORTERA",
+      "id": "port",
+      "label": "Giorgio Portera",
       "timeline": {
         "2007": {
           "position": { "x": -351, "y": -1056 },
@@ -716,7 +691,7 @@
           "time": "2007",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2007/giorgioportera2007.jpg",
           "info": "Ufficiale dei Carabinieri coinvolto nelle indagini del 2007.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -726,7 +701,7 @@
           "time": "2025",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2025/giorgioportera2025.jpg",
           "info": "Ufficiale dei Carabinieri nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -734,33 +709,33 @@
     },
     {
       "id": "marino",
-      "label": "DOTT. MARINO",
+      "label": "Alberto Marino",
       "timeline": {
         "2007": {
           "position": { "x": -38, "y": -1262 },
-          "type": "Medico legale",
+          "type": "Biologo",
           "time": "2007",
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/silhouette.jpg",
-          "info": "Medico legale coinvolto nelle prime fasi delle indagini.",
+          "info": "",
           "sfondo_dossier": "background/fog.gif"
         },
         "2025": {
           "position": { "x": -38, "y": -1262 },
-          "type": "Medico legale",
+          "type": "Biologo",
           "time": "2025",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
-          "info": "Medico legale coinvolto nelle nuove indagini.",
+          "foto_mappa": "photos/2025/albertomarino2025.png",
+          "info": "",
           "sfondo_dossier": "background/fog.gif"
         }
       }
     },
     {
       "id": "mattei",
-      "label": "LUOGOTENENTE MATTEI",
+      "label": "Aldo MATTEI",
       "timeline": {
         "2007": {
           "position": { "x": -353, "y": -873 },
@@ -768,7 +743,7 @@
           "time": "2007",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2007/aldomattei2007.jpg",
           "info": "Luogotenente dei Carabinieri coinvolto nelle indagini del 2007.",
           "sfondo_dossier": "background/fog.gif"
         },
@@ -778,7 +753,7 @@
           "time": "2025",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2025/aldomattei2025.jpg",
           "info": "Luogotenente dei Carabinieri nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -804,7 +779,7 @@
           "time": "2025",
           "status": "In vita",
           "luogo": "Pavia",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2025/gianluigitizzoni2025.jpg",
           "info": "Legale della famiglia Poggi nel nuovo fascicolo.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -823,6 +798,16 @@
           "foto_mappa": "photos/2007/angelogiarda2007.jpg",
           "info": "Avvocato difensore di Alberto Stasi.",
           "sfondo_dossier": "background/fog.gif"
+        },
+        "2017": {
+          "position": { "x": 427, "y": -761 },
+          "type": "Avvocato difensore di Alberto Stasi",
+          "time": "2017",
+          "status": "In vita",
+          "luogo": "Milano",
+          "foto_mappa": "photos/2007/angelogiarda2007.jpg",
+          "info": "Avvocato difensore di Alberto Stasi.",
+          "sfondo_dossier": "background/fog.gif"
         }
       }
     },
@@ -830,13 +815,23 @@
       "id": "bocellari",
       "label": "GIADA BOCELLARI",
       "timeline": {
+         "2017": {
+          "position": { "x": 647, "y": -761 },
+          "type": "Avvocato",
+          "time": "2017",
+          "status": "In vita",
+          "luogo": "Milano",
+          "foto_mappa": "photos/2017/giadabocellari2017.png",
+          "info": "Avvocato coinvolto nel caso Garlasco.",
+          "sfondo_dossier": "background/fog.gif"
+        },
         "2025": {
           "position": { "x": 647, "y": -761 },
           "type": "Avvocato",
           "time": "2025",
           "status": "In vita",
           "luogo": "Milano",
-          "foto_mappa": "photos/silhouette.jpg",
+          "foto_mappa": "photos/2025/giadabocellari2025.png",
           "info": "Avvocato coinvolto nel caso Garlasco.",
           "sfondo_dossier": "background/fog.gif"
         }
@@ -879,7 +874,7 @@
       "label": "MASSIMO LOVATI",
       "timeline": {
         "2017": {
-          "position": { "x": 1049, "y": -206 },
+          "position": { "x": 596, "y": -452 },
           "type": "Avvocato di Andrea Sempio",
           "time": "2016-2017",
           "status": "In vita",
@@ -889,7 +884,7 @@
           "sfondo_dossier": "background/fog.gif"
         },
         "2025": {
-          "position": { "x": 1049, "y": -206 },
+          "position": { "x": 596, "y": -452 },
           "type": "Figura collegata al fascicolo",
           "time": "2025",
           "status": "In vita",
@@ -963,6 +958,26 @@
           "sfondo_dossier": "background/fog.gif"
         }
       }
+    },
+    {
+      "id": "bramante",
+      "label": "Alessandra Bramante",
+      "timeline": {
+        "2025": {
+          "position": { "x": 200, "y": -1262 },
+          "type": "Psicologa",
+          "time": "2025",
+          "status": "In vita",
+          "luogo": "XXXX",
+          "foto_mappa": "photos/2025/alessandrabramante2025.jpg",
+          "info": "È una psicologa, psicoterapeuta, esperta in criminologia clinica e dottore di ricerca in neuroscienze",
+          "sfondo_dossier": "background/fog.gif",
+          "events": [
+            { "data": "05 Ottobre 2026", "titolo": "Dossier Bramante", "descrizione": "Il 10 Settembre 2026 negli armadi dei RIS di Parma viene individuato questo dossier psicologico su Alberto Stasi fatto nel 2007 su carta intestata della psicologa Bramante Alessandra. La Dottoressa Bramante dichiara: «Non ho mai redatto un profilo di Alberto Stasi»"}
+          ]
+          
+        }
+      }
     }
   ],
   "links": {
@@ -988,35 +1003,28 @@
       { "data": { "id": "e19", "source": "rosa", "target": "marino", "edgeType": "connessione" } },
       { "data": { "id": "e20", "source": "garofano", "target": "mattei", "edgeType": "connessione" } },
       { "data": { "id": "e21", "source": "garofano", "target": "marino", "edgeType": "connessione" } },
-      { "data": { "id": "e22", "source": "garofano", "target": "portera", "edgeType": "connessione" } },
+      { "data": { "id": "e22", "source": "garofano", "target": "port", "edgeType": "connessione" } },
       { "data": { "id": "e23", "source": "garofano", "target": "pizzamiglio", "edgeType": "connessione" } },
       { "data": { "id": "e24", "source": "tizzoni", "target": "rita", "edgeType": "connessione" } },
       { "data": { "id": "e25", "source": "tizzoni", "target": "giuseppe", "edgeType": "connessione" } },
       { "data": { "id": "e26", "source": "giarda", "target": "alberto", "edgeType": "connessione" } },
-      { "data": { "id": "e27", "source": "rosa", "target": "tizzoni", "edgeType": "connessione" } },
-      { "data": { "id": "e28", "source": "rosa", "target": "giarda", "edgeType": "connessione" } }
+      { "data": { "id": "e27", "source": "rosa", "target": "mattei", "edgeType": "connessione" } },
+      { "data": { "id": "e29", "source": "f.biasibetti", "target": "rita", "edgeType": "connessione" } },
+      { "data": { "id": "e30", "source": "f.biasibetti", "target": "giuseppe", "edgeType": "connessione" } },
+      { "data": { "id": "e31", "source": "f.biasibetti", "target": "marco", "edgeType": "connessione" } }
     ],
     "2017": [
       { "data": { "id": "e1", "source": "chiara", "target": "andrea", "edgeType": "connessione" } },
       { "data": { "id": "e2", "source": "chiara", "target": "marco", "edgeType": "connessione" } },
       { "data": { "id": "e3", "source": "marco", "target": "andrea", "edgeType": "connessione" } },
-      { "data": { "id": "e4", "source": "giuseppes", "target": "andrea", "edgeType": "connessione" } },
-      { "data": { "id": "e5", "source": "andrea", "target": "silvio", "edgeType": "connessione" } },
-      { "data": { "id": "e6", "source": "andrea", "target": "giuseppesp", "edgeType": "connessione" } },
+      { "data": { "id": "e5", "source": "andrea", "target": "giuseppes", "edgeType": "connessione" } },
       { "data": { "id": "e7", "source": "mario", "target": "silvio", "edgeType": "connessione" } },
       { "data": { "id": "e8", "source": "mario", "target": "giuseppesp", "edgeType": "connessione" } },
-      { "data": { "id": "e9", "source": "maurizio", "target": "antonios", "edgeType": "connessione" } },
-      { "data": { "id": "e10", "source": "maurizio", "target": "mario", "edgeType": "connessione" } },
-      { "data": { "id": "e11", "source": "antonios", "target": "mario", "edgeType": "connessione" } },
-      { "data": { "id": "e12", "source": "antonios", "target": "andrea", "edgeType": "connessione" } },
-      { "data": { "id": "e13", "source": "antonios", "target": "whois", "edgeType": "connessione" } },
-      { "data": { "id": "e14", "source": "whois", "target": "giuseppes", "edgeType": "connessione" } },
-      { "data": { "id": "e15", "source": "garofano", "target": "andrea", "edgeType": "connessione" } },
       { "data": { "id": "e16", "source": "lovati", "target": "andrea", "edgeType": "connessione" } },
       { "data": { "id": "e17", "source": "grassi", "target": "andrea", "edgeType": "connessione" } },
       { "data": { "id": "e18", "source": "soldani", "target": "andrea", "edgeType": "connessione" } },
-      { "data": { "id": "e19", "source": "soldani", "target": "silvio", "edgeType": "connessione" } },
-      { "data": { "id": "e20", "source": "soldani", "target": "giuseppes", "edgeType": "connessione" } }
+      { "data": { "id": "e4", "source": "alberto", "target": "bocellari", "edgeType": "connessione" } },
+      { "data": { "id": "e6", "source": "giarda", "target": "alberto", "edgeType": "connessione" } }
     ],
     "2025": [
       { "data": { "id": "e1", "source": "marco", "target": "alessandro", "edgeType": "connessione" } },
@@ -1041,16 +1049,18 @@
       { "data": { "id": "e26", "source": "whois", "target": "giuseppes", "edgeType": "connessione" } },
       { "data": { "id": "e27", "source": "antonios", "target": "whois", "edgeType": "connessione" } },
       { "data": { "id": "e28", "source": "antonios", "target": "mario", "edgeType": "connessione" } },
-      { "data": { "id": "e29", "source": "antonios", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e29", "source": "antonios", "target": "tizzoni", "edgeType": "connessione" } },
       { "data": { "id": "e32", "source": "garofano", "target": "mattei", "edgeType": "connessione" } },
       { "data": { "id": "e33", "source": "garofano", "target": "marino", "edgeType": "connessione" } },
-      { "data": { "id": "e34", "source": "garofano", "target": "portera", "edgeType": "connessione" } },
+      { "data": { "id": "e34", "source": "garofano", "target": "port", "edgeType": "connessione" } },
       { "data": { "id": "e35", "source": "garofano", "target": "pizzamiglio", "edgeType": "connessione" } },
       { "data": { "id": "e36", "source": "tizzoni", "target": "p.civile", "edgeType": "connessione" } },
       { "data": { "id": "e37", "source": "bocellari", "target": "alberto", "edgeType": "connessione" } },
       { "data": { "id": "e38", "source": "lovati", "target": "andrea", "edgeType": "connessione" } },
       { "data": { "id": "e39", "source": "cataliotti", "target": "andrea", "edgeType": "connessione" } },
-      { "data": { "id": "e40", "source": "taccia", "target": "andrea", "edgeType": "connessione" } }
+      { "data": { "id": "e40", "source": "taccia", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e41", "source": "tizzoni", "target": "lovati", "edgeType": "connessione" } },
+      { "data": { "id": "e42", "source": "tizzoni", "target": "garofano", "edgeType": "connessione" } }
     ]
   },
   "events": {
@@ -1076,7 +1086,9 @@
       { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "La famiglia Sempio viene perquisita nuovamente. La perquisizione è scattata dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025" },
       { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "Mario Venditti viene perquisito dalla procura di Brescia come conseguenza del bigliettino e inserito nel registro degli indagati come corrotto per l'indagine archiviata a carico di Andrea Sempio del 2016-2017"},
       { "data": "18 Dicembre 2025", "titolo": "Chiusura Incidente Probatorio", "descrizione": "Il Perito Albani Denise ha cristallizzato l'aplotipo Y del DNA patrilineare della famiglia Sempio sopra/sotto le unghie della vittima Poggi" },
-      { "data": "07 Maggio 2026", "titolo": "415 bis", "descrizione": "La procura di Pavia conclude le indagini a carico di Andrea Sempio con deposito di tutti gli atti del procedimento penale n.642/2025 relativo all'omicidio di Chiara Poggi." }
+      { "data": "07 Maggio 2026", "titolo": "415 bis", "descrizione": "La procura di Pavia conclude le indagini a carico di Andrea Sempio con deposito di tutti gli atti del procedimento penale n.642/2025 relativo all'omicidio di Chiara Poggi." },
+       { "data": "28 Settembre 2026", "titolo": "Chiusura Indagine", "descrizione": "La procura di Pavia conclude le indagini (per la seconda volta) dopo la proroga a carico di Andrea Sempio relativo all'omicidio di Chiara Poggi. La difesa Sempio ha 20 giorni per depositare le consulenze sui nuovi materiali proposti dalla Procura di Pavia" },
+      { "data": "07 Ottobre 2026", "titolo": "Dossier Cappa", "descrizione": "Spunta un dossier nei confronti della famiglia Cappa. Questo dossier mette a confronto le SIT dei vari membri della famiglia Cappa, i loro alibi, le biciclette che detenevano e quali fossero i rapporti con Chiara Poggi. L'autore risulterebbe anonimo. Sarebbe rinvenuto il 23 Settembre 2023 nel fascicolo 125/23 Mod 45. in falsa copertina (fascicolo sbagliato)." }
     ]
   }
 }
