@@ -1,19 +1,22 @@
 let cyInstance = null;
+let miniCyInstance = null;      // istanza del mini-grafo di navigazione
 let databaseNodi = null;
 let currentEpoch = null;
 let charPositions = {};
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Disclaimer
     const disclaimerBtn = document.getElementById('disclaimer-confirm-btn');
     if (disclaimerBtn) {
         disclaimerBtn.addEventListener('click', () => {
             const overlay = document.getElementById('disclaimer-overlay');
             overlay.style.opacity = '0';
             overlay.style.visibility = 'hidden';
-            setTimeout(() => { overlay.style.display = 'none'; }, 600);
+            setTimeout(() => { overlay.style.display = 'none'; }, 700);
         });
     }
 
+    // Caricamento dati
     fetch('data.json')
         .then(r => {
             if (!r.ok) throw new Error('Impossibile caricare data.json');
@@ -29,13 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             document.querySelectorAll('.dial-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    switchEpoch(item.dataset.year);
-                });
+                item.addEventListener('click', () => switchEpoch(item.dataset.year));
             });
         })
         .catch(err => console.error('Errore caricamento dati:', err));
 
+    // Controlli UI
     document.getElementById('change-epoch-btn').addEventListener('click', resetApertura);
     document.getElementById('close-dossier-btn').addEventListener('click', chiudiDossier);
     document.getElementById('open-timeline-btn').addEventListener('click', apriTimeline);
@@ -44,28 +46,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const exportBtn = document.getElementById('export-positions-btn');
     if (exportBtn) exportBtn.addEventListener('click', esportaPosizioni);
+
+    // Scorciatoie da tastiera
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            chiudiDossier();
+            chiudiTimeline();
+        }
+    });
+
+    // Rebuild mini-graph al resize (solo se aperto)
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (miniCyInstance && !miniCyInstance.destroyed()) {
+                miniCyInstance.resize();
+                miniCyInstance.fit(undefined, 24);
+            }
+        }, 150);
+    });
 });
 
 // ===== POSIZIONI =====
-// Nota: la priorità è data da `position` dentro la scheda del personaggio (timeline[anno].position).
-// charPositions serve solo come FALLBACK per i personaggi che non hanno una position nella timeline.
+// Priorità: `position` dentro timeline[anno] > charPositions (fallback)
 function loadPositions() {
-    // Fallback 1: blocco "positions" globale in data.json
     if (databaseNodi && databaseNodi.positions) {
         charPositions = JSON.parse(JSON.stringify(databaseNodi.positions));
         console.log('📦 Fallback posizioni da data.json (blocco positions)');
         return;
     }
-    // Fallback 2: localStorage (drag salvati in passato)
     const saved = localStorage.getItem('garlasco_positions');
     if (saved) {
         try {
             charPositions = JSON.parse(saved);
             console.log('💾 Fallback posizioni da localStorage');
             return;
-        } catch(e) { console.warn('localStorage corrotto.'); }
+        } catch (e) { console.warn('localStorage corrotto.'); }
     }
-    // Fallback 3: primo timeline con position disponibile
     if (databaseNodi && databaseNodi.characters) {
         databaseNodi.characters.forEach(c => {
             if (!c.timeline) return;
@@ -102,7 +120,7 @@ function avviaTransizione(anno) {
         musica.play().catch(e => console.warn('Audio non riprodotto:', e));
     }
     const overlay = document.getElementById('portal-overlay');
-    overlay.style.transform = 'scale(1.15)';
+    overlay.style.transform = 'scale(1.12)';
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
 
@@ -113,7 +131,7 @@ function avviaTransizione(anno) {
         document.getElementById('open-timeline-btn').style.display = 'flex';
         document.getElementById('audio-toggle-btn').style.display = 'block';
         caricaEpoca(anno);
-    }, 700);
+    }, 750);
 }
 
 // ===== COSTRUZIONE ELEMENTI =====
@@ -125,9 +143,6 @@ function buildElements(anno) {
         .map(char => {
             const dati = char.timeline[anno];
 
-            // PRIORITÀ: 1) position nella scheda del personaggio (per quell'anno)
-            //           2) charPositions (fallback da data.json.positions o localStorage)
-            //           3) 0,0
             let posizione;
             if (dati.position && typeof dati.position.x === 'number' && typeof dati.position.y === 'number') {
                 posizione = { x: dati.position.x, y: dati.position.y };
@@ -194,24 +209,29 @@ function caricaEpoca(anno) {
                     'shape': 'round-rectangle',
                     'width': '95px',
                     'height': '118px',
-                    'border-radius': '8px',
-                    'background-color': '#1a1a1a',
-                    'background-opacity': 0.9,
-                    'border-width': 2,
-                    'border-color': '#444',
+                    'border-radius': '10px',
+                    'background-color': '#14141a',
+                    'background-opacity': 0.95,
+                    'border-width': 1.5,
+                    'border-color': 'rgba(255,255,255,0.12)',
                     'label': 'data(label)',
                     'text-valign': 'bottom',
                     'text-halign': 'center',
                     'text-margin-y': 10,
-                    'color': '#f1ef75',
-                    'text-opacity': 0.9,
+                    'color': '#e8d166',
+                    'text-opacity': 0.95,
                     'font-family': 'Inter, sans-serif',
                     'font-size': '9px',
                     'font-weight': 600,
                     'text-transform': 'uppercase',
                     'text-wrap': 'wrap',
                     'text-max-width': '100px',
-                    'overlay-opacity': 0
+                    'overlay-opacity': 0,
+                    'shadow-blur': 26,
+                    'shadow-color': '#000',
+                    'shadow-opacity': 0.7,
+                    'shadow-offset-x': 0,
+                    'shadow-offset-y': 6
                 }
             },
             {
@@ -224,8 +244,8 @@ function caricaEpoca(anno) {
                     'background-opacity': 1,
                     'background-color': '#0a0a0a',
                     'border-width': 2,
-                    'border-color': 'var(--glow-gold)',
-                    'border-radius': '8px'
+                    'border-color': 'rgba(212,175,55,0.7)',
+                    'border-radius': '10px'
                 }
             },
             {
@@ -238,31 +258,43 @@ function caricaEpoca(anno) {
                     'color': '#c5ac1f', 'text-opacity': 0.5,
                     'font-family': 'Inter, sans-serif',
                     'font-size': '8px',
-                    'text-valign': 'top', 'text-margin-y': -8
+                    'text-valign': 'top', 'text-margin-y': -8,
+                    'shadow-blur': 12,
+                    'shadow-color': '#d4af37',
+                    'shadow-opacity': 0.4,
+                    'shadow-offset-x': 0,
+                    'shadow-offset-y': 0
                 }
             },
             {
                 selector: 'edge',
                 style: {
-                    'width': 2,
+                    'width': 1.6,
                     'curve-style': 'bezier',
                     'control-point-step-size': 'data(curvaDinamica)',
                     'target-arrow-shape': 'none',
                     'line-color': '#d3c82a',
-                    'line-opacity': 0.6,
+                    'line-opacity': 0.55,
                     'line-style': 'dashed',
                     'line-cap': 'round',
                     'line-dash-pattern': [2, 12],
-                    'line-dash-offset': 0
+                    'line-dash-offset': 0,
+                    'shadow-blur': 6,
+                    'shadow-color': '#d4af37',
+                    'shadow-opacity': 0.35
                 }
             },
             {
                 selector: 'edge[edgeType="connessione"]',
-                style: { 'line-color': '#ffffff', 'line-opacity': 0.5 }
+                style: { 'line-color': '#ffffff', 'line-opacity': 0.4 }
             },
             {
                 selector: 'edge[edgeType="evidenza"]',
-                style: { 'line-color': '#d4af37', 'line-opacity': 0.8, 'line-dash-pattern': [0] }
+                style: {
+                    'line-color': '#d4af37',
+                    'line-opacity': 0.85,
+                    'line-dash-pattern': [0]
+                }
             }
         ],
         layout: { name: 'preset', padding: 60, animate: false }
@@ -341,7 +373,6 @@ function switchEpoch(anno) {
         added.animate({ style: { opacity: 1 } }, { duration: 550 });
     }
 
-    // Aggiorna anche la POSIZIONE dei nodi già presenti (non solo i data)
     newNodes.forEach(n => {
         if (currentNodeIds.has(n.data.id)) {
             const node = cy.getElementById(n.data.id);
@@ -384,7 +415,7 @@ function popolaTimeline(anno) {
     const container = document.getElementById('timeline-events-container');
     container.innerHTML = '';
     if (!databaseNodi || !databaseNodi.events || !databaseNodi.events[anno]) {
-        container.innerHTML = '<div class="event-item" style="color:#666;font-size:12px;">Nessun evento registrato per questa epoca.</div>';
+        container.innerHTML = '<div class="event-item" style="color:#666;font-size:12px;border-left-color:#333;">Nessun evento registrato per questa epoca.</div>';
         return;
     }
     databaseNodi.events[anno].forEach(ev => {
@@ -399,7 +430,7 @@ function popolaTimeline(anno) {
     });
 }
 
-// ===== DOSSIER (senza foto) =====
+// ===== DOSSIER =====
 function apriDossier(nodeId) {
     const panel = document.getElementById('dossier-panel');
     panel.classList.add('open');
@@ -436,6 +467,245 @@ function apriDossier(nodeId) {
     } else {
         container.innerHTML = '<div style="font-size:12px;color:#555;">Nessun evento specifico per questo soggetto.</div>';
     }
+
+    // Mini-grafo di navigazione
+    buildMiniGraph(nodeId);
+    openMiniGraphPanel();
+}
+
+// ===== MINI-GRAFO DI NAVIGAZIONE =====
+function buildMiniGraph(centerId) {
+    // Su schermi piccoli il pannello è nascosto via CSS: skip build
+    if (window.innerWidth <= 1024) return;
+
+    const container = document.getElementById('mini-cy');
+    const emptyEl = document.getElementById('mini-graph-empty');
+    const countEl = document.getElementById('mini-graph-count');
+    if (!container) return;
+
+    // Reset
+    if (miniCyInstance && !miniCyInstance.destroyed()) {
+        miniCyInstance.destroy();
+        miniCyInstance = null;
+    }
+    emptyEl.style.display = 'none';
+    countEl.innerText = '0';
+
+    if (!databaseNodi || !databaseNodi.links || !databaseNodi.links[currentEpoch]) {
+        emptyEl.style.display = 'flex';
+        return;
+    }
+
+    // Trova i collegamenti diretti del personaggio nell'epoca corrente
+    const links = databaseNodi.links[currentEpoch];
+    const connectedIds = new Set();
+    links.forEach(link => {
+        const { source, target } = link.data;
+        if (source === centerId) connectedIds.add(target);
+        else if (target === centerId) connectedIds.add(source);
+    });
+
+    // Filtra solo i personaggi realmente presenti nell'epoca corrente
+    const epochChars = databaseNodi.characters.filter(
+        c => c.timeline && c.timeline[currentEpoch]
+    );
+    const epochCharMap = new Map(epochChars.map(c => [c.id, c]));
+
+    const validConnections = [...connectedIds].filter(id => epochCharMap.has(id));
+
+    if (validConnections.length === 0) {
+        emptyEl.style.display = 'flex';
+        return;
+    }
+
+    // Costruzione elementi mini-grafo
+    const centerChar = epochCharMap.get(centerId);
+    const nodes = [{
+        data: {
+            id: centerId,
+            label: (centerChar && centerChar.label) || centerId,
+            isCenter: true,
+            foto_mappa: (centerChar && centerChar.timeline[currentEpoch].foto_mappa) || ''
+        }
+    }];
+
+    validConnections.forEach(otherId => {
+        const char = epochCharMap.get(otherId);
+        if (!char) return;
+        const dati = char.timeline[currentEpoch];
+        nodes.push({
+            data: {
+                id: otherId,
+                label: char.label || otherId,
+                foto_mappa: dati.foto_mappa || ''
+            }
+        });
+    });
+
+    const edges = validConnections.map(otherId => ({
+        data: {
+            id: `mini-${centerId}-${otherId}`,
+            source: centerId,
+            target: otherId
+        }
+    }));
+
+    countEl.innerText = String(validConnections.length);
+
+    miniCyInstance = cytoscape({
+        container: container,
+        elements: [...nodes, ...edges],
+        autounselectify: true,
+        userZoomingEnabled: false,
+        userPanningEnabled: false,
+        boxSelectionEnabled: false,
+        wheelSensitivity: 0,
+        style: [
+            {
+                selector: 'node',
+                style: {
+                    'width': 46,
+                    'height': 46,
+                    'shape': 'ellipse',
+                    'background-color': '#16161d',
+                    'background-opacity': 0.95,
+                    'border-width': 1.5,
+                    'border-color': 'rgba(255,255,255,0.18)',
+                    'label': 'data(label)',
+                    'font-size': '7px',
+                    'font-weight': 600,
+                    'font-family': 'Inter, sans-serif',
+                    'color': '#d9c964',
+                    'text-valign': 'bottom',
+                    'text-halign': 'center',
+                    'text-margin-y': 5,
+                    'text-wrap': 'wrap',
+                    'text-max-width': '62px',
+                    'text-transform': 'uppercase',
+                    'overlay-opacity': 0,
+                    'transition-property': 'border-color, border-width',
+                    'transition-duration': '200ms',
+                    'shadow-blur': 14,
+                    'shadow-color': '#000',
+                    'shadow-opacity': 0.6,
+                    'shadow-offset-x': 0,
+                    'shadow-offset-y': 3
+                }
+            },
+            {
+                selector: 'node[foto_mappa][foto_mappa != ""]',
+                style: {
+                    'background-image': 'data(foto_mappa)',
+                    'background-fit': 'cover',
+                    'background-position-x': '50%',
+                    'background-position-y': '20%',
+                    'background-opacity': 1,
+                    'background-color': '#0a0a0a'
+                }
+            },
+            {
+                selector: 'node[isCenter]',
+                style: {
+                    'width': 62,
+                    'height': 62,
+                    'border-width': 2.5,
+                    'border-color': '#d4af37',
+                    'font-size': '8px',
+                    'color': '#f0c94a',
+                    'text-max-width': '80px',
+                    'shadow-blur': 24,
+                    'shadow-color': '#d4af37',
+                    'shadow-opacity': 0.55,
+                    'shadow-offset-y': 0
+                }
+            },
+            {
+                selector: 'node:active',
+                style: {
+                    'border-color': '#f0c94a',
+                    'border-width': 2
+                }
+            },
+            {
+                selector: 'edge',
+                style: {
+                    'width': 1.2,
+                    'curve-style': 'straight',
+                    'line-color': '#d3c82a',
+                    'line-opacity': 0.5,
+                    'line-style': 'dashed',
+                    'line-dash-pattern': [3, 5],
+                    'shadow-blur': 4,
+                    'shadow-color': '#d4af37',
+                    'shadow-opacity': 0.25
+                }
+            }
+        ],
+        layout: {
+            name: 'concentric',
+            concentric: (node) => node.data('isCenter') ? 2 : 1,
+            levelWidth: () => 1,
+            minNodeSpacing: 28,
+            padding: 30,
+            animate: false
+        }
+    });
+
+    // Click su un nodo del mini-grafo → apri il suo dossier
+    miniCyInstance.on('tap', 'node', (evt) => {
+        const id = evt.target.data('id');
+        if (id && id !== centerId) {
+            apriDossier(id);
+        }
+    });
+
+    // Cursore pointer sui nodi
+    miniCyInstance.on('mouseover', 'node', () => {
+        container.style.cursor = 'pointer';
+    });
+    miniCyInstance.on('mouseout', 'node', () => {
+        container.style.cursor = 'default';
+    });
+
+    miniCyInstance.ready(() => {
+        miniCyInstance.fit(undefined, 24);
+        // Se c'è un solo nodo (il centro) senza connessioni non ci arriviamo,
+        // perché validConnections.length > 0 è già garantito.
+    });
+}
+
+function openMiniGraphPanel() {
+    if (window.innerWidth <= 1024) return;
+    const panel = document.getElementById('mini-graph-panel');
+    if (!panel) return;
+    panel.setAttribute('aria-hidden', 'false');
+    // rAF per garantire che il layout sia pronto prima della transizione
+    requestAnimationFrame(() => {
+        panel.classList.add('open');
+        // resize per sicurezza dopo l'apertura
+        if (miniCyInstance && !miniCyInstance.destroyed()) {
+            setTimeout(() => {
+                if (miniCyInstance && !miniCyInstance.destroyed()) {
+                    miniCyInstance.resize();
+                    miniCyInstance.fit(undefined, 24);
+                }
+            }, 520);
+        }
+    });
+}
+
+function closeMiniGraphPanel() {
+    const panel = document.getElementById('mini-graph-panel');
+    if (!panel) return;
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+    // Distruggi dopo la transizione
+    setTimeout(() => {
+        if (miniCyInstance && !miniCyInstance.destroyed()) {
+            miniCyInstance.destroy();
+            miniCyInstance = null;
+        }
+    }, 500);
 }
 
 // ===== UI =====
@@ -444,7 +714,9 @@ function toggleAudio() {
     const btn = document.getElementById('audio-toggle-btn');
     if (!audio) return;
     audio.muted = !audio.muted;
-    btn.innerHTML = audio.muted ? '<i class="fa-solid fa-volume-xmark"></i>' : '<i class="fa-solid fa-volume-high"></i>';
+    btn.innerHTML = audio.muted
+        ? '<i class="fa-solid fa-volume-xmark"></i>'
+        : '<i class="fa-solid fa-volume-high"></i>';
     btn.title = audio.muted ? 'Attiva Audio' : 'Disattiva Audio';
 }
 
@@ -457,18 +729,26 @@ function apriTimeline() {
 function chiudiTimeline() {
     const panel = document.getElementById('timeline-panel');
     panel.classList.remove('open');
-    setTimeout(() => { panel.style.display = 'none'; }, 400);
+    setTimeout(() => { panel.style.display = 'none'; }, 500);
 }
 
 function chiudiDossier() {
     const panel = document.getElementById('dossier-panel');
     panel.classList.remove('open');
-    setTimeout(() => { panel.style.display = 'none'; }, 400);
+    setTimeout(() => { panel.style.display = 'none'; }, 500);
+
+    // Chiudi anche il mini-grafo
+    closeMiniGraphPanel();
 }
 
 function resetApertura() {
     chiudiDossier();
     chiudiTimeline();
+
+    if (miniCyInstance && !miniCyInstance.destroyed()) {
+        miniCyInstance.destroy();
+        miniCyInstance = null;
+    }
     if (cyInstance) { cyInstance.destroy(); cyInstance = null; }
     currentEpoch = null;
 

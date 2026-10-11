@@ -312,7 +312,7 @@
           "time": "2025",
           "status": "In vita",
           "luogo": "Garlasco (PV)",
-          "foto_mappa": "photos/2025/danielaferrari2025.webp",
+          "foto_mappa": "photos/2025/danielaferrari2025.jpg",
           "info": "Sostiene l'innocenza del figlio",
           "sfondo_dossier": "background/fog.gif",
           "events": [
@@ -900,13 +900,23 @@
       "label": "SIMONE GRASSI",
       "timeline": {
         "2017": {
-          "position": { "x": 1050, "y": 12 },
+          "position": { "x": 1163, "y": -17},
           "type": "Avvocato di Andrea Sempio",
           "time": "2016-2017",
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "banner/whois.webp",
           "info": "Assiste Andrea Sempio nel fascicolo 2016-2017.",
+          "sfondo_dossier": "background/fog.gif"
+        },
+        "2025": {
+          "position": { "x": 1163, "y": -17 },
+          "type": "Avvocato",
+          "time": "2025",
+          "status": "In vita",
+          "luogo": "Pavia",
+          "foto_mappa": "banner/whois.webp",
+          "info": "Coinvolto nell'indagine per corruzione.",
           "sfondo_dossier": "background/fog.gif"
         }
       }
@@ -916,13 +926,23 @@
       "label": "FEDERICO SOLDANI",
       "timeline": {
         "2017": {
-          "position": { "x": 1087, "y": -428 },
+          "position": { "x": 1045, "y": -206 },
           "type": "Avvocato di Andrea Sempio",
           "time": "2016-2017",
           "status": "In vita",
           "luogo": "Pavia",
           "foto_mappa": "photos/2017/federicosoldani2017.jpg",
           "info": "Assiste Andrea Sempio nel fascicolo 2016-2017.",
+          "sfondo_dossier": "background/fog.gif"
+        },
+        "2025": {
+          "position": { "x": 1045, "y": -206 },
+          "type": "Avvocato",
+          "time": "2016-2017",
+          "status": "In vita",
+          "luogo": "Pavia",
+          "foto_mappa": "photos/2017/federicosoldani2017.jpg",
+          "info": "Coinvolto nell'indagine per corruzione.",
           "sfondo_dossier": "background/fog.gif"
         }
       }
@@ -1060,7 +1080,9 @@
       { "data": { "id": "e39", "source": "cataliotti", "target": "andrea", "edgeType": "connessione" } },
       { "data": { "id": "e40", "source": "taccia", "target": "andrea", "edgeType": "connessione" } },
       { "data": { "id": "e41", "source": "tizzoni", "target": "lovati", "edgeType": "connessione" } },
-      { "data": { "id": "e42", "source": "tizzoni", "target": "garofano", "edgeType": "connessione" } }
+      { "data": { "id": "e42", "source": "tizzoni", "target": "garofano", "edgeType": "connessione" } },
+      { "data": { "id": "e43", "source": "grassi", "target": "andrea", "edgeType": "connessione" } },
+      { "data": { "id": "e44", "source": "soldani", "target": "andrea", "edgeType": "connessione" } }
     ]
   },
   "events": {
