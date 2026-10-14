@@ -16,14 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Caricamento dati
-    fetch('data.json')
-        .then(r => {
-            if (!r.ok) throw new Error('Impossibile caricare data.json');
-            return r.json();
-        })
-        .then(data => {
-            databaseNodi = data;
+    // Caricamento dati (4 file JSON separati)
+    Promise.all([
+        fetch('data/characters.json').then(r => { if (!r.ok) throw new Error('Impossibile caricare characters.json'); return r.json(); }),
+        fetch('data/positions.json').then(r =>  { if (!r.ok) throw new Error('Impossibile caricare positions.json');  return r.json(); }),
+        fetch('data/events.json').then(r =>     { if (!r.ok) throw new Error('Impossibile caricare events.json');     return r.json(); }),
+        fetch('data/links.json').then(r =>      { if (!r.ok) throw new Error('Impossibile caricare links.json');      return r.json(); })
+    ])
+        .then(([characters, positions, events, links]) => {
+            databaseNodi = { characters, positions, events, links };
             loadPositions();
 
             const startCard = document.getElementById('start-investigation');
@@ -69,31 +70,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===== POSIZIONI =====
-// Priorità: `position` dentro timeline[anno] > charPositions (fallback)
+// Le posizioni sono GLOBALI per personaggio (blocco in positions.json).
+// La presenza di un personaggio in una data epoca è decisa dalla presenza
+// della chiave timeline[anno] dentro characters.json.
 function loadPositions() {
     if (databaseNodi && databaseNodi.positions) {
         charPositions = JSON.parse(JSON.stringify(databaseNodi.positions));
-        console.log('📦 Fallback posizioni da data.json (blocco positions)');
+        console.log('📦 Posizioni globali caricate da positions.json');
         return;
     }
     const saved = localStorage.getItem('garlasco_positions');
     if (saved) {
         try {
             charPositions = JSON.parse(saved);
-            console.log('💾 Fallback posizioni da localStorage');
+            console.log('💾 Posizioni caricate da localStorage');
             return;
         } catch (e) { console.warn('localStorage corrotto.'); }
     }
-    if (databaseNodi && databaseNodi.characters) {
-        databaseNodi.characters.forEach(c => {
-            if (!c.timeline) return;
-            for (const anno of Object.keys(c.timeline)) {
-                const p = c.timeline[anno].position;
-                if (p) { charPositions[c.id] = { x: p.x, y: p.y }; break; }
-            }
-        });
-        console.log('📋 Fallback posizioni dai timeline.');
-    }
+    charPositions = {};
+    console.warn('⚠️ Nessuna posizione trovata. Uso default (0,0).');
 }
 
 function savePositions() {
@@ -102,7 +97,7 @@ function savePositions() {
 
 function esportaPosizioni() {
     const json = JSON.stringify(charPositions, null, 2);
-    console.log('===== COPIA QUESTO IN data.json SOTTO LA CHIAVE "positions" =====');
+    console.log('===== COPIA QUESTO IN positions.json =====');
     console.log(json);
     if (navigator.clipboard) {
         navigator.clipboard.writeText(json)
@@ -142,15 +137,10 @@ function buildElements(anno) {
         .filter(char => char.timeline && char.timeline[anno])
         .map(char => {
             const dati = char.timeline[anno];
-
-            let posizione;
-            if (dati.position && typeof dati.position.x === 'number' && typeof dati.position.y === 'number') {
-                posizione = { x: dati.position.x, y: dati.position.y };
-            } else if (charPositions[char.id]) {
-                posizione = { x: charPositions[char.id].x, y: charPositions[char.id].y };
-            } else {
-                posizione = { x: 0, y: 0 };
-            }
+            const p = charPositions[char.id];
+            const posizione = (p && typeof p.x === 'number' && typeof p.y === 'number')
+                ? { x: p.x, y: p.y }
+                : { x: 0, y: 0 };
 
             return {
                 group: 'nodes',
@@ -669,8 +659,6 @@ function buildMiniGraph(centerId) {
 
     miniCyInstance.ready(() => {
         miniCyInstance.fit(undefined, 24);
-        // Se c'è un solo nodo (il centro) senza connessioni non ci arriviamo,
-        // perché validConnections.length > 0 è già garantito.
     });
 }
 
