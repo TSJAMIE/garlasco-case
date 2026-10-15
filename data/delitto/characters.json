@@ -1,6 +1,6 @@
 [
   {
-    "id": "chiara",
+    "id": "poggiC",
     "label": "CHIARA POGGI",
     "timeline": {
       "2007": {
@@ -42,7 +42,7 @@
     }
   },
   {
-    "id": "alberto",
+    "id": "stasi",
     "label": "ALBERTO STASI",
     "timeline": {
       "2007": {
@@ -88,7 +88,7 @@
     }
   },
   {
-    "id": "rita",
+    "id": "preda",
     "label": "RITA PREDA",
     "timeline": {
       "2007": {
@@ -104,7 +104,7 @@
     }
   },
   {
-    "id": "giuseppe",
+    "id": "poggiG",
     "label": "GIUSEPPE POGGI",
     "timeline": {
       "2007": {
@@ -120,7 +120,7 @@
     }
   },
   {
-    "id": "marco",
+    "id": "poggiM",
     "label": "MARCO POGGI",
     "timeline": {
       "2007": {
@@ -158,7 +158,7 @@
     }
   },
   {
-    "id": "andrea",
+    "id": "sempio",
     "label": "ANDREA SEMPIO",
     "timeline": {
       "2007": {
@@ -203,7 +203,7 @@
     }
   },
   {
-    "id": "alessandro",
+    "id": "biasibetti",
     "label": "ALESSANDRO BIASIBETTI",
     "timeline": {
       "2007": {
@@ -245,7 +245,7 @@
     }
   },
   {
-    "id": "daniela",
+    "id": "ferrari",
     "label": "DANIELA FERRARI",
     "timeline": {
       "2025": {
@@ -265,7 +265,7 @@
     }
   },
   {
-    "id": "giuseppes",
+    "id": "sempioG",
     "label": "GIUSEPPE SEMPIO",
     "timeline": {
       "2017": {
@@ -295,7 +295,7 @@
     }
   },
   {
-    "id": "silvio",
+    "id": "sapone",
     "label": "SILVIO SAPONE",
     "timeline": {
       "2017": {
@@ -306,20 +306,11 @@
         "foto_mappa": "photos/2025/silviosapone2025.webp",
         "info": "Responsabile della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
         "sfondo_dossier": "background/fog.gif"
-      },
-      "2025": {
-        "type": "ex Luogotenente",
-        "time": "2025",
-        "status": "In vita",
-        "luogo": "Garlasco (PV)",
-        "foto_mappa": "photos/2025/silviosapone2025.webp",
-        "info": "Responsabile della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
-        "sfondo_dossier": "background/fog.gif"
       }
     }
   },
   {
-    "id": "giuseppesp",
+    "id": "spoto",
     "label": "GIUSEPPE SPOTO",
     "timeline": {
       "2017": {
@@ -330,20 +321,11 @@
         "foto_mappa": "photos/2025/giuseppespoto2025.webp",
         "info": "Membro della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
         "sfondo_dossier": "background/fog.gif"
-      },
-      "2025": {
-        "type": "ex Maresciallo",
-        "time": "2025",
-        "status": "In vita",
-        "luogo": "Garlasco (PV)",
-        "foto_mappa": "photos/2025/giuseppespoto2025.webp",
-        "info": "Membro della polizia giudiziaria durante il fascicolo a carico di Andrea Sempio nel 2016-2017",
-        "sfondo_dossier": "background/fog.gif"
       }
     }
   },
   {
-    "id": "mario",
+    "id": "venditti",
     "label": "Mario Venditti",
     "timeline": {
       "2017": {
@@ -353,71 +335,6 @@
         "luogo": "Pavia",
         "foto_mappa": "photos/2025/mariovenditti2025.webp",
         "info": "PM titolare del fascicolo 2016-2017 a carico di Andrea Sempio, poi archiviato.",
-        "sfondo_dossier": "background/fog.gif"
-      },
-      "2025": {
-        "type": "ex Procuratore di pavia",
-        "time": "Agosto 2007",
-        "status": "In vita",
-        "luogo": "Garlasco (PV)",
-        "foto_mappa": "photos/2025/mariovenditti2025.webp",
-        "info": "Indagato e Archiviato per Corruzione sul fascicolo archiviato 2016/2017 a carico di Andrea Sempio",
-        "sfondo_dossier": "background/fog.gif",
-        "events": [
-          { "data": "26 Settembre 2025", "titolo": "Perquisizione", "descrizione": "Mario Venditti viene perquisito dalla procura di Brescia dopo il ritrovamento del biglietto «VENDITTI GIP ARCHIVIA X 20. 30. € euro» durante la perquisizione del 14 Maggio 2025 a casa dei Sempio. Viene inserito nel registro degli indagati come corrotto per l'indagine archiviata a carico di Andrea Sempio del 2016-2017" }
-        ]
-      }
-    }
-  },
-  {
-    "id": "maurizio",
-    "label": "MAURIZIO PAPPALARDO",
-    "timeline": {
-      "2025": {
-        "type": "ex Luogotenente dei Carabinieri",
-        "time": "2025",
-        "status": "In vita",
-        "luogo": "Garlasco (PV)",
-        "foto_mappa": "photos/2025/mauriziopappalardo2025.webp",
-        "info": "Coinvolto nel caso Garlasco attraverso le indagini Clean 2",
-        "sfondo_dossier": "background/fog.gif",
-        "events": [
-          { "data": "24 Dicembre 2016", "titolo": "Elemento Investigativo", "descrizione": "Durante le Indagini Clean 2 (2020-2025) si scopre che, il giorno dopo l'iscrizione di Sempio nel registro degli indagati in relazione all'Omicidio di Chiara Poggi, Pappalardo alla vigilia del Natale 2016 si reca alla Procura di Pavia per fare delle foto di documenti (secretati) sul fascicolo aperto a carico di Andrea Sempio. Secondo le ipotesi investigative Pappalardo si sarebbe diretto verso la procura di Pavia dopo degli 'insistenti messaggi' del Carabiniere Forestale Scoppetta. Si tratterebbe del primo grave indizio di una catena di eventi di un'ipotesi di corruzione per l'archiviazione a carico di Sempio Andrea."}
-        ]
-      }
-    }
-  },
-  {
-    "id": "antonios",
-    "label": "ANTONIO SCOPPETTA",
-    "timeline": {
-      "2025": {
-        "type": "ex Carabiniere del nucleo Forestale",
-        "time": "2025",
-        "eta": "XXXXX",
-        "status": "In Vita",
-        "luogo": "Carcere di Opera (MI)",
-        "foto_mappa": "photos/2025/antonioscoppetta2025.jpg",
-        "info": "Condannato per corruzione, induzione indebita e stalking.",
-        "sfondo_dossier": "background/fog.gif",
-        "events": [
-          { "data": "Dicembre 2016", "titolo": "Invito in Procura", "descrizione": "Il Maresciallo Antonio Scoppetta chiamò Pappalardo in Procura «con insistenti messaggi», anche lui oggi condannato per corruzione. I documenti vengono fotografati (da Pappalardo) su un tavolo di vetro verde: è il tavolo del procuratore aggiunto, Venditti. Quando nell'ottobre 2025 il Procutatore Aggiunto C di Pavia Civardi viene a saperlo, chiede spiegazioni agli uffici dell'Arma di Pavia. Di quelle fotografie non c'è traccia, ma salta fuori un «fascicolo P» intestato a Sempio nel 2017. E lì dentro, a sorpresa, c'è una bozza della richiesta di archiviazione dell'indagine a carico di Sempio, l'archiviazione lampo decisa da Venditti. Nella bozza c'è un appunto scritto a mano, che propone delle correzioni che poi verranno recepite nella richiesta definitiva. Di chi è l'appunto? Chi ha passato la bozza ai carabinieri? (fonte Il Giornale 11 Maggio 2026)" }
-        ]
-      }
-    }
-  },
-  {
-    "id": "whois",
-    "label": "?????",
-    "timeline": {
-      "2025": {
-        "type": "XXXXX",
-        "time": "XXXXX",
-        "eta": "XXXXX",
-        "status": "XXXXX",
-        "luogo": "XXXXX",
-        "foto_mappa": "banner/whois.webp",
-        "info": "Il tramite che avrebbe permesso di collegare il corrotto (Mario Venditti) e il corruttore (Giuseppe Sempio)",
         "sfondo_dossier": "background/fog.gif"
       }
     }
@@ -438,7 +355,7 @@
     }
   },
   {
-    "id": "stefania",
+    "id": "cappaS",
     "label": "STEFANIA CAPPA",
     "timeline": {
       "2007": {
@@ -471,7 +388,7 @@
     }
   },
   {
-    "id": "paola",
+    "id": "cappaP",
     "label": "PAOLA CAPPA",
     "timeline": {
       "2007": {
@@ -487,7 +404,7 @@
     }
   },
   {
-    "id": "maria",
+    "id": "poggiMRA",
     "label": "MARIA ROSA ASSUNTA POGGI",
     "timeline": {
       "2007": {
@@ -502,7 +419,7 @@
     }
   },
   {
-    "id": "ermanno",
+    "id": "cappa",
     "label": "ERMANNO CAPPA",
     "timeline": {
       "2007": {
@@ -517,7 +434,7 @@
     }
   },
   {
-    "id": "antonio",
+    "id": "derensis",
     "label": "ANTONIO DE RENSIS",
     "timeline": {
       "2025": {
@@ -536,7 +453,7 @@
     }
   },
   {
-    "id": "rosa",
+    "id": "muscio",
     "label": "ROSA MUSCIO",
     "timeline": {
       "2007": {
@@ -814,15 +731,6 @@
         "foto_mappa": "banner/whois.webp",
         "info": "Avvocato difendore di Andrea Sempio/Tirocinante presso lo studio Soldani",
         "sfondo_dossier": "background/fog.gif"
-      },
-      "2025": {
-        "type": "Avvocato",
-        "time": "Garlasco BIS",
-        "status": "In vita",
-        "luogo": "Pavia",
-        "foto_mappa": "banner/whois.webp",
-        "info": "Coinvolto nell'indagine per corruzione.",
-        "sfondo_dossier": "background/fog.gif"
       }
     }
   },
@@ -837,15 +745,6 @@
         "luogo": "Pavia",
         "foto_mappa": "photos/2017/federicosoldani2017.jpg",
         "info": "Avvocato difendore di Andrea Sempio.",
-        "sfondo_dossier": "background/fog.gif"
-      },
-      "2025": {
-        "type": "Avvocato",
-        "time": "Garlasco BIS",
-        "status": "In vita",
-        "luogo": "Pavia",
-        "foto_mappa": "photos/2017/federicosoldani2017.jpg",
-        "info": "Coinvolto nell'indagine per corruzione.",
         "sfondo_dossier": "background/fog.gif"
       }
     }
@@ -965,7 +864,7 @@
         "info": "Condannò Stasi a 16 anni di carcere",
         "sfondo_dossier": "background/fog.gif",
         "events": [
-            { "data": "15 Ottobre 2026", "titolo": "Articolo", "descrizione": "Nei faldoni il legame tra la toga Barbaini, che fece condannare Alberto, e l'ex generale dei Ris che lo portà al fermo. Un manoscritto del 12 novembre 2011, con tanto di firma del sostituto procuratore generale Laurar Barbaini, la cui grafia è coerente con quella dei post-it trovati sulla copia degli ati secretati della prima indagine archiviata su Andrea Sempio, arrivati illeitamente nelle mani di luciano Garofano.)"}
+            { "data": "15 Ottobre 2026", "titolo": "Articolo", "descrizione": "Nei faldoni il legame tra la toga Barbaini, che fece condannare Alberto, e l'ex generale dei Ris che lo portà al fermo. Un manoscritto del 12 novembre 2011, con tanto di firma del sostituto procuratore generale Laura Barbaini, la cui grafia è coerente con quella dei post-it trovati sulla copia degli ati secretati della prima indagine archiviata su Andrea Sempio, arrivati illecitamente nelle mani di Luciano Garofano.)"}
         ]
       }
     }

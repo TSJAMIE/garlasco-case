@@ -1,8 +1,26 @@
 let cyInstance = null;
-let miniCyInstance = null;      // istanza del mini-grafo di navigazione
+let miniCyInstance = null;
 let databaseNodi = null;
 let currentEpoch = null;
 let charPositions = {};
+let currentDataset = null;
+
+// ===== CONFIGURAZIONE DATASET =====
+// Ogni caso ha la sua cartella, le sue epoche e la sua chiave localStorage.
+const DATASETS = {
+    delitto: {
+        path: 'data/delitto/',
+        epochs: ['2007', '2017', '2025'],
+        startEpoch: '2007',
+        storageKey: 'garlasco_positions_delitto'
+    },
+    corruzione: {
+        path: 'data/corruzione/',
+        epochs: ['2025'],
+        startEpoch: '2025',
+        storageKey: 'garlasco_positions_corruzione'
+    }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     // Disclaimer
@@ -16,27 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Caricamento dati (4 file JSON separati)
-    Promise.all([
-        fetch('data/characters.json').then(r => { if (!r.ok) throw new Error('Impossibile caricare characters.json'); return r.json(); }),
-        fetch('data/positions.json').then(r =>  { if (!r.ok) throw new Error('Impossibile caricare positions.json');  return r.json(); }),
-        fetch('data/events.json').then(r =>     { if (!r.ok) throw new Error('Impossibile caricare events.json');     return r.json(); }),
-        fetch('data/links.json').then(r =>      { if (!r.ok) throw new Error('Impossibile caricare links.json');      return r.json(); })
-    ])
-        .then(([characters, positions, events, links]) => {
-            databaseNodi = { characters, positions, events, links };
-            loadPositions();
+    // ===== CARD 1: Delitto di Garlasco =====
+    const startCard = document.getElementById('start-investigation');
+    if (startCard) {
+        startCard.addEventListener('click', () => avviaTransizione('delitto'));
+    }
 
-            const startCard = document.getElementById('start-investigation');
-            if (startCard) {
-                startCard.addEventListener('click', () => avviaTransizione('2007'));
-            }
+    // ===== CARD 2: Corruzione a Garlasco =====
+    const corruptionCard = document.getElementById('corruption-investigation');
+    if (corruptionCard) {
+        corruptionCard.addEventListener('click', () => avviaTransizione('corruzione'));
+    }
 
-            document.querySelectorAll('.dial-item').forEach(item => {
-                item.addEventListener('click', () => switchEpoch(item.dataset.year));
-            });
-        })
-        .catch(err => console.error('Errore caricamento dati:', err));
+    // ===== CARD 3: Coming Soon (nessun handler: pointer-events: none via CSS) =====
 
     // Controlli UI
     document.getElementById('change-epoch-btn').addEventListener('click', resetApertura);
@@ -56,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Rebuild mini-graph al resize (solo se aperto)
+    // Rebuild mini-graph al resize
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
@@ -69,21 +79,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ===== CARICAMENTO DATASET =====
+async function caricaDataset(datasetKey) {
+    const config = DATASETS[datasetKey];
+    if (!config) throw new Error(`Dataset sconosciuto: ${datasetKey}`);
+
+    const base = config.path;
+    const [characters, positions, events, links] = await Promise.all([
+        fetch(base + 'characters.json').then(r => { if (!r.ok) throw new Error(`Impossibile caricare ${base}characters.json`); return r.json(); }),
+        fetch(base + 'positions.json').then(r =>  { if (!r.ok) throw new Error(`Impossibile caricare ${base}positions.json`);  return r.json(); }),
+        fetch(base + 'events.json').then(r =>     { if (!r.ok) throw new Error(`Impossibile caricare ${base}events.json`);     return r.json(); }),
+        fetch(base + 'links.json').then(r =>      { if (!r.ok) throw new Error(`Impossibile caricare ${base}links.json`);      return r.json(); })
+    ]);
+
+    return { characters, positions, events, links };
+}
+
+// ===== TRANSIZIONE =====
+async function avviaTransizione(datasetKey) {
+    const config = DATASETS[datasetKey];
+    if (!config) return;
+
+    try {
+        const data = await caricaDataset(datasetKey);
+        databaseNodi = data;
+        currentDataset = datasetKey;
+        loadPositions();
+        popolaDial(config.epochs);
+
+        // Musica
+        const musica = document.getElementById('bg-music');
+        if (musica) {
+            musica.volume = 0.4;
+            musica.play().catch(e => console.warn('Audio non riprodotto:', e));
+        }
+
+        // Transizione visuale
+        const overlay = document.getElementById('portal-overlay');
+        overlay.style.transform = 'scale(1.12)';
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            const main = document.getElementById('main-interface');
+            main.style.display = 'block';
+            document.getElementById('open-timeline-btn').style.display = 'flex';
+            document.getElementById('audio-toggle-btn').style.display = 'block';
+            caricaEpoca(config.startEpoch);
+        }, 750);
+    } catch (err) {
+        console.error('Errore caricamento dataset:', err);
+        alert('Errore nel caricamento dei dati. Controlla la console (F12).');
+    }
+}
+
+// ===== POPOLA DIAL (dinamico) =====
+function popolaDial(epochs) {
+    const dial = document.getElementById('epoch-dial');
+    dial.innerHTML = '';
+    epochs.forEach(anno => {
+        const div = document.createElement('div');
+        div.className = 'dial-item';
+        div.dataset.year = anno;
+        div.textContent = anno;
+        div.addEventListener('click', () => switchEpoch(anno));
+        dial.appendChild(div);
+    });
+}
+
 // ===== POSIZIONI =====
-// Le posizioni sono GLOBALI per personaggio (blocco in positions.json).
-// La presenza di un personaggio in una data epoca è decisa dalla presenza
-// della chiave timeline[anno] dentro characters.json.
 function loadPositions() {
-    if (databaseNodi && databaseNodi.positions) {
+    if (databaseNodi && databaseNodi.positions && Object.keys(databaseNodi.positions).length > 0) {
         charPositions = JSON.parse(JSON.stringify(databaseNodi.positions));
-        console.log('📦 Posizioni globali caricate da positions.json');
+        console.log(`📦 Posizioni caricate da ${DATASETS[currentDataset].path}positions.json`);
         return;
     }
-    const saved = localStorage.getItem('garlasco_positions');
+    const key = DATASETS[currentDataset].storageKey;
+    const saved = localStorage.getItem(key);
     if (saved) {
         try {
             charPositions = JSON.parse(saved);
-            console.log('💾 Posizioni caricate da localStorage');
+            console.log(`💾 Posizioni caricate da localStorage (${key})`);
             return;
         } catch (e) { console.warn('localStorage corrotto.'); }
     }
@@ -92,41 +169,21 @@ function loadPositions() {
 }
 
 function savePositions() {
-    localStorage.setItem('garlasco_positions', JSON.stringify(charPositions));
+    const key = DATASETS[currentDataset].storageKey;
+    localStorage.setItem(key, JSON.stringify(charPositions));
 }
 
 function esportaPosizioni() {
     const json = JSON.stringify(charPositions, null, 2);
-    console.log('===== COPIA QUESTO IN positions.json =====');
+    const targetPath = DATASETS[currentDataset].path + 'positions.json';
+    console.log(`===== COPIA QUESTO IN ${targetPath} =====`);
     console.log(json);
     if (navigator.clipboard) {
         navigator.clipboard.writeText(json)
             .then(() => console.log('✅ Copiato negli appunti!'))
             .catch(() => console.log('⚠️ Copia manuale dalla console.'));
     }
-    alert('Posizioni esportate! Controlla la console (F12) — già copiate negli appunti.');
-}
-
-// ===== TRANSIZIONE =====
-function avviaTransizione(anno) {
-    const musica = document.getElementById('bg-music');
-    if (musica) {
-        musica.volume = 0.4;
-        musica.play().catch(e => console.warn('Audio non riprodotto:', e));
-    }
-    const overlay = document.getElementById('portal-overlay');
-    overlay.style.transform = 'scale(1.12)';
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none';
-
-    setTimeout(() => {
-        overlay.style.display = 'none';
-        const main = document.getElementById('main-interface');
-        main.style.display = 'block';
-        document.getElementById('open-timeline-btn').style.display = 'flex';
-        document.getElementById('audio-toggle-btn').style.display = 'block';
-        caricaEpoca(anno);
-    }, 750);
+    alert(`Posizioni esportate! Incollale in ${targetPath} — già copiate negli appunti.`);
 }
 
 // ===== COSTRUZIONE ELEMENTI =====
@@ -458,14 +515,12 @@ function apriDossier(nodeId) {
         container.innerHTML = '<div style="font-size:12px;color:#555;">Nessun evento specifico per questo soggetto.</div>';
     }
 
-    // Mini-grafo di navigazione
     buildMiniGraph(nodeId);
     openMiniGraphPanel();
 }
 
 // ===== MINI-GRAFO DI NAVIGAZIONE =====
 function buildMiniGraph(centerId) {
-    // Su schermi piccoli il pannello è nascosto via CSS: skip build
     if (window.innerWidth <= 1024) return;
 
     const container = document.getElementById('mini-cy');
@@ -473,7 +528,6 @@ function buildMiniGraph(centerId) {
     const countEl = document.getElementById('mini-graph-count');
     if (!container) return;
 
-    // Reset
     if (miniCyInstance && !miniCyInstance.destroyed()) {
         miniCyInstance.destroy();
         miniCyInstance = null;
@@ -486,7 +540,6 @@ function buildMiniGraph(centerId) {
         return;
     }
 
-    // Trova i collegamenti diretti del personaggio nell'epoca corrente
     const links = databaseNodi.links[currentEpoch];
     const connectedIds = new Set();
     links.forEach(link => {
@@ -495,7 +548,6 @@ function buildMiniGraph(centerId) {
         else if (target === centerId) connectedIds.add(source);
     });
 
-    // Filtra solo i personaggi realmente presenti nell'epoca corrente
     const epochChars = databaseNodi.characters.filter(
         c => c.timeline && c.timeline[currentEpoch]
     );
@@ -508,7 +560,6 @@ function buildMiniGraph(centerId) {
         return;
     }
 
-    // Costruzione elementi mini-grafo
     const centerChar = epochCharMap.get(centerId);
     const nodes = [{
         data: {
@@ -641,7 +692,6 @@ function buildMiniGraph(centerId) {
         }
     });
 
-    // Click su un nodo del mini-grafo → apri il suo dossier
     miniCyInstance.on('tap', 'node', (evt) => {
         const id = evt.target.data('id');
         if (id && id !== centerId) {
@@ -649,7 +699,6 @@ function buildMiniGraph(centerId) {
         }
     });
 
-    // Cursore pointer sui nodi
     miniCyInstance.on('mouseover', 'node', () => {
         container.style.cursor = 'pointer';
     });
@@ -667,10 +716,8 @@ function openMiniGraphPanel() {
     const panel = document.getElementById('mini-graph-panel');
     if (!panel) return;
     panel.setAttribute('aria-hidden', 'false');
-    // rAF per garantire che il layout sia pronto prima della transizione
     requestAnimationFrame(() => {
         panel.classList.add('open');
-        // resize per sicurezza dopo l'apertura
         if (miniCyInstance && !miniCyInstance.destroyed()) {
             setTimeout(() => {
                 if (miniCyInstance && !miniCyInstance.destroyed()) {
@@ -687,7 +734,6 @@ function closeMiniGraphPanel() {
     if (!panel) return;
     panel.classList.remove('open');
     panel.setAttribute('aria-hidden', 'true');
-    // Distruggi dopo la transizione
     setTimeout(() => {
         if (miniCyInstance && !miniCyInstance.destroyed()) {
             miniCyInstance.destroy();
@@ -724,8 +770,6 @@ function chiudiDossier() {
     const panel = document.getElementById('dossier-panel');
     panel.classList.remove('open');
     setTimeout(() => { panel.style.display = 'none'; }, 500);
-
-    // Chiudi anche il mini-grafo
     closeMiniGraphPanel();
 }
 
@@ -739,6 +783,9 @@ function resetApertura() {
     }
     if (cyInstance) { cyInstance.destroy(); cyInstance = null; }
     currentEpoch = null;
+    currentDataset = null;
+    databaseNodi = null;
+    charPositions = {};
 
     const audio = document.getElementById('bg-music');
     if (audio) { audio.pause(); audio.currentTime = 0; audio.muted = false; }
@@ -749,11 +796,12 @@ function resetApertura() {
     document.getElementById('open-timeline-btn').style.display = 'none';
     document.getElementById('main-interface').style.display = 'none';
 
+    // Reset dial
+    document.getElementById('epoch-dial').innerHTML = '';
+
     const overlay = document.getElementById('portal-overlay');
     overlay.style.display = 'flex';
     overlay.style.opacity = '1';
     overlay.style.transform = 'scale(1)';
     overlay.style.pointerEvents = 'auto';
-
-    document.querySelectorAll('.dial-item').forEach(el => el.classList.remove('active'));
 }

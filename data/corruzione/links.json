@@ -1,0 +1,14 @@
+{
+"2025": [
+    { "data": { "id": "e1", "source": "sempio", "target": "ferrari", "edgeType": "connessione" } },
+    { "data": { "id": "e2", "source": "sempio", "target": "sempioG", "edgeType": "connessione" } },
+    { "data": { "id": "e3", "source": "sempio", "target": "sapone", "edgeType": "connessione" } },
+    { "data": { "id": "e4", "source": "sempio", "target": "spoto", "edgeType": "connessione" } },
+    { "data": { "id": "e5", "source": "venditti", "target": "sapone", "edgeType": "connessione" } },
+    { "data": { "id": "e6", "source": "venditti", "target": "spoto", "edgeType": "connessione" } },
+    { "data": { "id": "e7", "source": "reposo", "target": "sapone", "edgeType": "connessione" } },
+    { "data": { "id": "e8", "source": "reposo", "target": "spoto", "edgeType": "connessione" } },
+    { "data": { "id": "e9", "source": "scoppetta", "target": "pappalardo", "edgeType": "connessione" } },
+    { "data": { "id": "e10", "source": "pappalardo", "target": "venditti", "edgeType": "connessione" } }
+  ]
+}
