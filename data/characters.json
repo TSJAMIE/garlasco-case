@@ -574,7 +574,8 @@
         "events": [
           { "data": "2 Ottobre 2025", "titolo": "SIT", "descrizione": "Il generale Garofano viene chiamato a SIT presso Brescia in quanto persona informata sui fatti. Il tema è l'archiviazione delle indagini a carico di Andrea Sempio nel fascicolo del 2016/2017. in quanto all'epoca consulente della difesa Sempio."},
           { "data": "25 Settembre 2026", "titolo": "SIT", "descrizione": "Il generale Garofano viene chiamato a Sommarie Informazioni Testimoniali presso Pavia dal Procuratore Civardi in quanto persona informata sui fatti. Il tema sono le indagini del RIS di Parma del 2007."},
-          { "data": "12 Ottobre 2026", "titolo": "Articolo", "descrizione": "Il generale Garofano dichiara: «Mi incuriosiva la figura di Stasi, per questo ho fatto fare a una mia amica una consulenza personologica» (NDR Bramante)."}
+          { "data": "12 Ottobre 2026", "titolo": "Articolo", "descrizione": "Il generale Garofano dichiara: «Mi incuriosiva la figura di Stasi, per questo ho fatto fare a una mia amica una consulenza personologica» (NDR Bramante)."},
+          { "data": "15 Ottobre 2026", "titolo": "Articolo", "descrizione": "Nei faldoni il legame tra la toga Barbaini, che fece condannare Alberto, e l'ex generale dei Ris che lo portà al fermo. Un manoscritto del 12 novembre 2011, con tanto di firma del sostituto procuratore generale Laurar Barbaini, la cui grafia è coerente con quella dei post-it trovati sulla copia degli ati secretati della prima indagine archiviata su Andrea Sempio, arrivati illeitamente nelle mani di luciano Garofano.)"}
         ]
       }
     }
@@ -947,6 +948,24 @@
         "sfondo_dossier": "background/fog.gif",
         "events": [
             { "data": "12 Ottobre 2026", "titolo": "Scandalo", "descrizione": "Il genetista Capra afferma presso Lo Stato delle Cose (RAI) che i consulenti di Alberto Stasi, Fabbri e Avato, sapessero dei 2 risultati NEGATIVI del DNA di Chiara Poggi sui pedali della bici di Alberto Stasi. (Analisi fatte il 20 Settembre 2007 dal genetista Marino Alberto mai riferiti alla PM Rosa Muscio.)"}
+        ]
+      }
+    }
+  },
+  {
+    "id": "barbaini",
+    "label": "Laura Barbaini",
+    "timeline": {
+      "2025": {
+        "type": "ex Procuratore Generale di Milano",
+        "time": "2026",
+        "status": "In vita",
+        "luogo": "XXXX",
+        "foto_mappa": "photos/2025/laurabarbaini2025.webp",
+        "info": "Condannò Stasi a 16 anni di carcere",
+        "sfondo_dossier": "background/fog.gif",
+        "events": [
+            { "data": "15 Ottobre 2026", "titolo": "Articolo", "descrizione": "Nei faldoni il legame tra la toga Barbaini, che fece condannare Alberto, e l'ex generale dei Ris che lo portà al fermo. Un manoscritto del 12 novembre 2011, con tanto di firma del sostituto procuratore generale Laurar Barbaini, la cui grafia è coerente con quella dei post-it trovati sulla copia degli ati secretati della prima indagine archiviata su Andrea Sempio, arrivati illeitamente nelle mani di luciano Garofano.)"}
         ]
       }
     }

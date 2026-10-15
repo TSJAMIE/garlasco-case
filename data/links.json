@@ -88,6 +88,8 @@
     { "data": { "id": "e49", "source": "capra", "target": "p.civile", "edgeType": "connessione" } },
     { "data": { "id": "e50", "source": "capra", "target": "tizzoni", "edgeType": "connessione" } },
     { "data": { "id": "e51", "source": "garofano", "target": "lago", "edgeType": "connessione" } },
-    { "data": { "id": "e52", "source": "lago", "target": "donghi", "edgeType": "connessione" } }
+    { "data": { "id": "e52", "source": "lago", "target": "donghi", "edgeType": "connessione" } },
+    { "data": { "id": "e53", "source": "garofano", "target": "barbaini", "edgeType": "connessione" } },
+    { "data": { "id": "e54", "source": "barbaini", "target": "p.civile", "edgeType": "connessione" } }
   ]
 }
